@@ -40,7 +40,7 @@
                     android:layout_weight="10"
                     android:hint="Search for a restaurant or menu"
                     android:background="@android:color/transparent"
-                    android:textSize="12"
+                    android:textSize="12sp"
                     android:layout_marginLeft="8dp" />
                 <Button
                     android:text="."
@@ -71,7 +71,7 @@
                 android:id="@+id/button1"
                 android:gravity="center_horizontal|center"
                 app:textAllCaps="false"
-                android:textSize="12"
+                android:textSize="12sp"
                 android:background="#FAFAFA" />
 
         </LinearLayout>

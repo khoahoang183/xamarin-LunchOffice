@@ -1,6 +1,7 @@
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App\bin\Debug\netstandard2.0\LunchOffice_App.deps.json
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App\bin\Debug\netstandard2.0\LunchOffice_App.dll
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App\bin\Debug\netstandard2.0\LunchOffice_App.pdb
+F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App\obj\Debug\netstandard2.0\LunchOffice_App.csprojAssemblyReference.cache
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App\obj\Debug\netstandard2.0\App.xaml.g.cs
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App\obj\Debug\netstandard2.0\LunchOffice_App.csproj.CoreCompileInputs.cache
