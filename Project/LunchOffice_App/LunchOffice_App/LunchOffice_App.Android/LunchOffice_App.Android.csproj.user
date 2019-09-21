@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
     <AndroidDesignerPreferredTheme>MainTheme</AndroidDesignerPreferredTheme>
-    <SelectedDevice>Nexus_5X_API_28_-_Device_1</SelectedDevice>
-    <DefaultDevice>Nexus_5X_API_28_-_Device_1</DefaultDevice>
+    <SelectedDevice>android_7_0</SelectedDevice>
+    <DefaultDevice>android_7_0</DefaultDevice>
   </PropertyGroup>
 </Project>
