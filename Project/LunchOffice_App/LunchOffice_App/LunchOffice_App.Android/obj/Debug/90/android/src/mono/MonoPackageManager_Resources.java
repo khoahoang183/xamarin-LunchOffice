@@ -5,6 +5,7 @@ public class MonoPackageManager_Resources {
 		"LunchOffice_App.Android.dll",
 		"FormsViewGroup.dll",
 		"LunchOffice_App.dll",
+		"System.Data.SQLite.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Core.Runtime.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",

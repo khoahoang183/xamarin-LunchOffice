@@ -1,1 +1,3 @@
-<resources><color name="launcher_background">#FFFFFF</color><color name="colorPrimary">#3F51B5</color><color name="colorPrimaryDark">#303F9F</color><color name="colorAccent">#FF4081</color><color name="Green_MainColor">#509e30</color><color name="Gray_TextMainColor">#1E1E1E</color></resources>
+<resources><color name="launcher_background">#FFFFFF</color><color name="colorPrimary">#3F51B5</color><color name="colorPrimaryDark">#303F9F</color><color name="colorAccent">#FF4081</color><color name="color_White">#fff</color><color name="Green_MainColor">#BBECA8</color><color name="Orange_MainColor">#fe8802</color><!--
+      <color name="Green_MainColor">#BBECA8</color>
+    --><color name="Gray_TextMainColor">#1E1E1E</color><color name="Gray_BackgroundColor">#FAFAFA</color><color name="Gray_BackgroundColor2">#F4F7FF</color></resources>

@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.lunchoffice_app">
-  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.lunchoffice_app" android:installLocation="auto">
+  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="26" />
   <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <application android:label="LunchOffice_App.Android" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
-    <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="LunchOffice_App" android:theme="@style/MainTheme" android:name="md5d455a9edea21171133419489d36f3762.Activity_Login">
+  <application android:label="LunchOffice_App.Android" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+    <activity android:label="Lunch Office" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5d455a9edea21171133419489d36f3762.Activity_Login" />
+    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/ic_logo_square" android:label="Lunch Office" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Loading">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:label="Activity_Login2" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Login2" />
+    <activity android:label="Activity_Register" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Register" />
     <service android:name="md5dcb6eccdc824e0677ffae8ccdde42930.KeepAliveService" />
     <receiver android:enabled="true" android:exported="false" android:label="Essentials Battery Broadcast Receiver" android:name="md5d630c3d3bfb5f5558520331566132d97.BatteryBroadcastReceiver" />
     <receiver android:enabled="true" android:exported="false" android:label="Essentials Energy Saver Broadcast Receiver" android:name="md5d630c3d3bfb5f5558520331566132d97.EnergySaverBroadcastReceiver" />
