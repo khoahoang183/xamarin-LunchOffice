@@ -42,6 +42,10 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            },
             "System.Data.SQLite": {
               "target": "Package",
               "version": "[1.0.111, )"
@@ -93,6 +97,18 @@
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[4.1.0.555618, )"
+            },
+            "XamarinSlideMenuLayout": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "modernhttpclient": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.6.292, )"
             }
           }
         }

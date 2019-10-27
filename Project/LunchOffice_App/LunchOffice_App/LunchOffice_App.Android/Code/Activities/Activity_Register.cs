@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using LunchOffice_App.Droid.Code.Bean;
 
 namespace LunchOffice_App.Droid.Code.Activities
 {
@@ -17,6 +18,7 @@ namespace LunchOffice_App.Droid.Code.Activities
     public class Activity_Register : Activity
     {
         EditText _edtID, _edtPassword, _edtConfirmPassword, _edtAddress, _edtPhone, _edtEmail;
+        Spinner _spinnerDistrict, _spinnerWard;
         Button btnRegister;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,9 +37,94 @@ namespace LunchOffice_App.Droid.Code.Activities
             _edtEmail = FindViewById<EditText>(Resource.Id.Register_edtEmail);
             btnRegister = FindViewById<Button>(Resource.Id.Register_btnRegister);
 
-            btnRegister.Click += btnRegisterClick;
-        }
+            _spinnerDistrict = FindViewById<Spinner>(Resource.Id.spinnerQuan);
+            _spinnerWard = FindViewById<Spinner>(Resource.Id.spinnerPhuong);
 
+            btnRegister.Click += btnRegisterClick;
+            //setup data
+            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_DISTRICT);
+            adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+            _spinnerDistrict.Adapter = adapter;
+            _spinnerDistrict.ItemSelected += spinnerDistrictItemSelected;
+        }
+        #region View Event
+        private void spinnerDistrictItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            ArrayAdapter<string> adapter;
+            string _selectedDistrict = _spinnerDistrict.SelectedItem.ToString();
+            if (_selectedDistrict.Equals("Quận 1"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN1);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+            if (_selectedDistrict.Equals("Quận 2"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN2);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+            if (_selectedDistrict.Equals("Quận 3"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN3);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+            if (_selectedDistrict.Equals("Quận 4"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN4);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+            if (_selectedDistrict.Equals("Quận 5"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN5);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+            if (_selectedDistrict.Equals("Quận 6"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN6);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+            if (_selectedDistrict.Equals("Quận 7"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN7);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+            if (_selectedDistrict.Equals("Quận 8"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN8);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+            if (_selectedDistrict.Equals("Quận 9"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN9);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+            if (_selectedDistrict.Equals("Quận 10"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN10);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+            if (_selectedDistrict.Equals("Quận 11"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN11);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+            if (_selectedDistrict.Equals("Quận 12"))
+            {
+                adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_WARD_QUAN12);
+                adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+                _spinnerWard.Adapter = adapter;
+            }
+        }
         private void btnRegisterClick(object sender, EventArgs e)
         {
             string _checkAPI = "OK";
@@ -57,7 +144,7 @@ namespace LunchOffice_App.Droid.Code.Activities
 
             }              
         }
-
+        #endregion
         private bool checkValidateData()
         {
             bool _result = true;
@@ -90,7 +177,6 @@ namespace LunchOffice_App.Droid.Code.Activities
             if (!_resultText.Equals("")) Toast.MakeText(this, _resultText, ToastLength.Long).Show();
             return _result;           
         }
-
         private void loadTestData()
         {
             _edtID.Text = "khoatest";

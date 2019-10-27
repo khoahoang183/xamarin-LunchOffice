@@ -38,6 +38,12 @@ namespace LunchOffice_App.Droid.Activities
                 Intent intent = new Intent(this, typeof(Activity_Login2));
                 StartActivity(intent);
             };
+            _btnNoLogin.Click += delegate
+            {
+                Finish();
+
+            };
+
         }
 
     }

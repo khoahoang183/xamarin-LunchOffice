@@ -33,6 +33,13 @@ public class Utilities_DownloadImageFromURL
 			mono.android.TypeManager.Activate ("LunchOffice_App.Droid.Code.Utilities.Utilities_DownloadImageFromURL, LunchOffice_App.Android", "Android.Content.Context, Mono.Android:Android.Widget.ImageView, Mono.Android", this, new java.lang.Object[] { p0, p1 });
 	}
 
+	public Utilities_DownloadImageFromURL (android.content.Context p0)
+	{
+		super ();
+		if (getClass () == Utilities_DownloadImageFromURL.class)
+			mono.android.TypeManager.Activate ("LunchOffice_App.Droid.Code.Utilities.Utilities_DownloadImageFromURL, LunchOffice_App.Android", "Android.Content.Context, Mono.Android", this, new java.lang.Object[] { p0 });
+	}
+
 
 	public void onPreExecute ()
 	{

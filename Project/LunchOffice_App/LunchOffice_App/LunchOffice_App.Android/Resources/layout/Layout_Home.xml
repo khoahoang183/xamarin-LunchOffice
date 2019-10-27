@@ -1,172 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="10">
+    android:layout_height="match_parent">
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1" 
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout8"
+        android:weightSum="10">
         <LinearLayout
             android:orientation="vertical"
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayout6" >
-        <TextView
-                android:text="Deliver to"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView1"
-                android:layout_marginLeft="8dp"
-                android:textStyle="bold" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayout7" 
-            android:weightSum="10">
+            android:layout_height="0dp"
+            android:id="@+id/linearLayout1"
+            android:layout_weight="1">
             <LinearLayout
                 android:orientation="vertical"
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/linearLayout6" 
-                android:layout_weight="8">
-
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout6">
                 <TextView
-                    android:text="39 Đường Nguyễn Trãi "
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="match_parent"
+                    android:text="Xin chào"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView2"
+                    android:id="@+id/textView1"
                     android:layout_marginLeft="8dp"
                     android:textStyle="bold" />
-
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/linearLayout7" 
-                android:layout_weight="2">
-                <Button
-                    android:text="."
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/button1" 
-                    android:background="@drawable/layout_home_button_shape"/>
-                <Button
-                    android:text="."
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/button2" 
-                    android:background="@drawable/layout_home_button_shape"
-                    android:layout_marginLeft="8dp"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout7"
+                android:weightSum="10">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout6"
+                    android:layout_weight="7">
+
+                    <TextView
+                        android:text="User Hoàng Đăng Khoa"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView2"
+                        android:layout_marginLeft="8dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout7"
+                    android:layout_weight="3"
+                    android:layout_marginBottom="2dp">
+                    <Button
+                        android:layout_marginLeft="8dp"
+                        android:text="."
+                        android:layout_width="32dp"
+                        android:layout_height="33dp"
+                        android:drawableStart="@drawable/ic_shoppingcart"
+                        android:id="@+id/Home_btnCart"
+                        android:background="@drawable/layout_home_button_shape"/>
+                    <Button
+                        android:text="."
+                        android:layout_width="32dp"
+                        android:layout_height="33dp"
+                        android:drawableStart="@drawable/ic_search"
+                        android:id="@+id/Home_btnSearch"
+                                                android:layout_marginLeft="8dp"
+                        android:background="@drawable/layout_home_button_shape"/>
+                    <Button
+                        android:text="."
+                        android:layout_width="32dp"
+                        android:layout_height="33dp"
+                        android:drawableStart="@drawable/ic_user"
+                        android:id="@+id/Home_btnMore"
+                        android:layout_marginLeft="8dp"
+                        android:background="@drawable/layout_home_button_shape"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            </LinearLayout>
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout2" 
-        android:layout_weight="2.5">
-
-        <android.support.v4.view.ViewPager
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:paddingBottom="8dp"
-            android:id="@+id/viewPager1"
-            android:layout_weight="2.5"
-            android:background="#ffc2edee" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout3"
-        android:layout_weight="1">
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout5">
-            <Button
-                android:text="Category 1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/btnCategory1"
-                android:layout_weight="1"
-                android:background="@drawable/layout_home_button_shape"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:drawableTop="@drawable/icon"  />
-            <Button
-                android:text="Category 2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/btnCategory2"
-                android:layout_weight="1"
-                android:background="@drawable/layout_home_button_shape"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:drawableTop="@drawable/icon"  
-              />
-            <Button
-                android:text="Category 3"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/btnCategory3"
-                android:layout_weight="1"
-                android:background="@drawable/layout_home_button_shape"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:drawableTop="@drawable/icon"  />
+            android:layout_weight="9"
+            android:layout_height="0dp"
+            android:id="@+id/linearLayout9"
+            android:weightSum="9">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/linearLayout2"
+                android:layout_weight="3">
+
+                <android.support.v4.view.ViewPager
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:paddingBottom="8dp"
+                    android:id="@+id/Home_ViewPagerBanner"
+                    android:layout_weight="2.5"
+                    android:background="#ffc2edee" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/linearLayout3"
+                android:layout_weight="1.5">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout5"
+                    android:background="#000">
+                    <Button
+                        android:text="Món cơm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/Home_btnCategory1"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_home_button_shape"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:drawableTop="@drawable/ic_food_category_1_small"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="0.5dp"/>
+                    <Button
+                        android:text="Món nước"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/Home_btnCategory2"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_home_button_shape"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:drawableTop="@drawable/ic_food_category_2_small"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="0.5dp"
+                        android:layout_marginRight="0.5dp"
+                        android:layout_marginBottom="0.5dp"/>
+                    <Button
+                        android:text="Giải khát"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/Home_btnCategory3"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_home_button_shape"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:drawableTop="@drawable/ic_food_category_3_smalla"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="0.5dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/linearLayout4"
+                android:layout_weight="4.5">
+                <android.support.v7.widget.RecyclerView
+                    android:paddingTop="8dp"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Home_RecyclerView_Data" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout4" 
-        android:layout_weight="5.5">
-        <android.support.v7.widget.RecyclerView
-            android:paddingTop="8dp"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recyclerView1" />
-
-    </LinearLayout>
-
 </LinearLayout>

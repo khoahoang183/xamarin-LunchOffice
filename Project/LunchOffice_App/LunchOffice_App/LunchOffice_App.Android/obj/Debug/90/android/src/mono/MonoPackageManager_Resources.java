@@ -3,8 +3,18 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "LunchOffice_App.Android.dll" comes first in this list. */
 		"LunchOffice_App.Android.dll",
+		"EDMTDev.dll",
 		"FormsViewGroup.dll",
 		"LunchOffice_App.dll",
+		"ModernHttpClient.dll",
+		"Newtonsoft.Json.dll",
+		"OkHttp.dll",
+		"SQLite-net.dll",
+		"SQLitePCLRaw.batteries_green.dll",
+		"SQLitePCLRaw.batteries_v2.dll",
+		"SQLitePCLRaw.core.dll",
+		"SQLitePCLRaw.lib.e_sqlite3.dll",
+		"SQLitePCLRaw.provider.e_sqlite3.dll",
 		"System.Data.SQLite.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Core.Runtime.dll",

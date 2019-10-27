@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.lunchoffice_app" android:installLocation="auto">
+  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="26" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <application android:label="LunchOffice_App.Android" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+    <activity android:label="Lunch Office" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5d455a9edea21171133419489d36f3762.Activity_Login" />
+    <activity android:label="Activity_Food_Category" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Food_Category" />
+    <activity android:label="Activity_Food_Detail" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Food_Detail" />
+    <activity android:label="Activity_Home" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Home" />
+    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/ic_logo_square" android:label="Lunch Office" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Loading">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:label="Activity_Login2" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Login2" />
+    <activity android:label="Activity_Register" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Register" />
+    <service android:name="md5dcb6eccdc824e0677ffae8ccdde42930.KeepAliveService" />
+    <receiver android:enabled="true" android:exported="false" android:label="Essentials Battery Broadcast Receiver" android:name="md5d630c3d3bfb5f5558520331566132d97.BatteryBroadcastReceiver" />
+    <receiver android:enabled="true" android:exported="false" android:label="Essentials Energy Saver Broadcast Receiver" android:name="md5d630c3d3bfb5f5558520331566132d97.EnergySaverBroadcastReceiver" />
+    <receiver android:enabled="true" android:exported="false" android:label="Essentials Connectivity Broadcast Receiver" android:name="md5d630c3d3bfb5f5558520331566132d97.ConnectivityBroadcastReceiver" />
+    <provider android:authorities="com.companyname.lunchoffice_app.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="xamarin.essentials.fileProvider">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/xamarin_essentials_fileprovider_file_paths" />
+    </provider>
+    <receiver android:enabled="true" android:exported="false" android:name="md51558244f76c53b6aeda52c8a337f2c37.PowerSaveModeBroadcastReceiver" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="1999999999" android:authorities="com.companyname.lunchoffice_app.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.com.companyname.lunchoffice_app" />
+      </intent-filter>
+    </receiver>
+  </application>
+</manifest>

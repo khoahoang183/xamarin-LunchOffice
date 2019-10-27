@@ -36,7 +36,6 @@ namespace LunchOffice_App.Droid
             {
                 Utilities_DownloadImageFromURL download = new Utilities_DownloadImageFromURL(this, imageView);
                 download.Execute("https://images.alphacoders.com/911/911335.jpg");
-
             };
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)

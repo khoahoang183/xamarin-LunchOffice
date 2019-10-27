@@ -47,12 +47,15 @@
             android:id="@+id/linearLayoutButton"
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="false">
+
             <Button
                 android:text="Continue Without Login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnNoLogin"
-                android:layout_margin="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
                 android:textStyle="normal|bold"
                 android:background="@drawable/layout_login_2_button_login"
                 android:textColor="#fff"/>
