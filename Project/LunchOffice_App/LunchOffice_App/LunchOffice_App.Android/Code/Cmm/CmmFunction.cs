@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Text.RegularExpressions;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -13,8 +13,18 @@ using Android.Widget;
 
 namespace LunchOffice_App.Droid.Code.Cmm
 {
-    public class CmmFunction
+    public static class CmmFunction
     {
-       
+        public static bool IsValidPhoneNumber(this string This)
+        {
+            var phoneNumber = This.Trim()
+                .Replace(" ", "")
+                .Replace("-", "")
+                .Replace("(", "")
+                .Replace(")", "");
+            return Regex.Match(phoneNumber, @"^\+\d{5,15}$").Success;
+        }
+
+
     }
 }

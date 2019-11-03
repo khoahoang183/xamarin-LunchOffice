@@ -41,7 +41,6 @@ namespace LunchOffice_App.Droid.Activities
             _btnNoLogin.Click += delegate
             {
                 Finish();
-
             };
 
         }

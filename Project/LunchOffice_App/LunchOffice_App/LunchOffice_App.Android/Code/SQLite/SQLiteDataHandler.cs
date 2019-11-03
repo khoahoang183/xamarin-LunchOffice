@@ -32,6 +32,7 @@ namespace LunchOffice_App.Droid.Code.SQLite
                     db = new SQLiteConnection(DbFilePath);
                     db.CreateTable<BeanMonAn>();
                     db.CreateTable<BeanNguoiDung>();
+                    db.CreateTable<BeanSession>();
                 }
             }
             catch (Exception e)
@@ -59,7 +60,6 @@ namespace LunchOffice_App.Droid.Code.SQLite
                 throw;
             }
         }
-
         public static BeanMonAn BeanMonAn_SearchItem(int MaMon)
         {
             BeanMonAn data = new BeanMonAn();
@@ -102,6 +102,66 @@ namespace LunchOffice_App.Droid.Code.SQLite
                 if (File.Exists(DbFilePath))
                 {
                     List<BeanMonAn> data = BeanMonAn_LoadList();
+                    db = new SQLiteConnection(DbFilePath);
+                    db.Insert(item);
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        #endregion
+
+        #region BeanSession
+        /// <summary>
+        /// list tra ve khac null la ko co session
+        /// </summary>
+        /// <returns></returns>
+        public static List<BeanSession> BeanSession_LoadList()
+        {
+            List<BeanSession> data = new List<BeanSession>();
+            try
+            {
+                if (File.Exists(DbFilePath))
+                {
+                    db = new SQLiteConnection(DbFilePath);
+                    data = db.Table<BeanSession>().ToList();
+                }
+                return data;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        public static bool BeanSession_ClearSession()
+        {
+            List<BeanSession> data = new List<BeanSession>();
+            try
+            {
+                if (File.Exists(DbFilePath))
+                {
+                    db = new SQLiteConnection(DbFilePath);
+                    db.DeleteAll<BeanSession>();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        public static bool BeanSession_AddSession(BeanSession item)
+        {
+            try
+            {
+                if (File.Exists(DbFilePath))
+                {
+                    List<BeanSession> data = BeanSession_LoadList();
                     db = new SQLiteConnection(DbFilePath);
                     db.Insert(item);
                     return true;

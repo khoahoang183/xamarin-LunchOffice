@@ -18,6 +18,7 @@ android.support.v4.view.ViewPager;obj\Debug\90\res\layout\layout_home.xml
 android.support.v4.widget.NestedScrollView;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\51\jl\res\layout\rootlayout.xml
 android.support.v4.widget.NestedScrollView;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\51\jl\res\layout\shellcontent.xml
 android.support.v7.widget.RecyclerView;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\51\jl\res\layout\flyoutcontent.xml
+android.support.v7.widget.RecyclerView;obj\Debug\90\res\layout\layout_bill_confirm.xml
 android.support.v7.widget.RecyclerView;obj\Debug\90\res\layout\layout_food_category.xml
 android.support.v7.widget.RecyclerView;obj\Debug\90\res\layout\layout_home.xml
 android.support.v7.widget.Toolbar;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\51\jl\res\layout\rootlayout.xml
@@ -27,6 +28,10 @@ android.support.v7.widget.Toolbar;obj\Debug\90\res\layout\toolbar.xml
 attr;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\0\jl\res\values\values.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\icon.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\icon_round.xml
+Button;obj\Debug\90\res\layout\layout_bill_confirm.xml
+Button;obj\Debug\90\res\layout\layout_bill_confirm_change_address.xml
+Button;obj\Debug\90\res\layout\layout_bill_confirm_change_note.xml
+Button;obj\Debug\90\res\layout\layout_bill_confirm_change_phone.xml
 Button;obj\Debug\90\res\layout\layout_food_category.xml
 Button;obj\Debug\90\res\layout\layout_food_detail.xml
 Button;obj\Debug\90\res\layout\layout_food_detail_additem.xml
@@ -34,6 +39,7 @@ Button;obj\Debug\90\res\layout\layout_home.xml
 Button;obj\Debug\90\res\layout\layout_login.xml
 Button;obj\Debug\90\res\layout\layout_login_2.xml
 Button;obj\Debug\90\res\layout\layout_login_register.xml
+Button;obj\Debug\90\res\layout\layout_login_register_confirmotp.xml
 Button;obj\Debug\90\res\layout\layouttest.xml
 cache-path;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\50\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 color;obj\Debug\90\res\values\colors.xml
@@ -49,9 +55,13 @@ corners;obj\Debug\90\res\drawable\layout_login_2_button_google.xml
 corners;obj\Debug\90\res\drawable\layout_login_2_button_login.xml
 corners;obj\Debug\90\res\drawable\layout_login_button_shape.xml
 declare-styleable;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\0\jl\res\values\values.xml
+EditText;obj\Debug\90\res\layout\layout_bill_confirm_change_address.xml
+EditText;obj\Debug\90\res\layout\layout_bill_confirm_change_note.xml
+EditText;obj\Debug\90\res\layout\layout_bill_confirm_change_phone.xml
 EditText;obj\Debug\90\res\layout\layout_food_category.xml
 EditText;obj\Debug\90\res\layout\layout_login_2.xml
 EditText;obj\Debug\90\res\layout\layout_login_register.xml
+EditText;obj\Debug\90\res\layout\layout_login_register_confirmotp.xml
 enum;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\0\jl\res\values\values.xml
 external-cache-path;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\50\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\50\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
@@ -72,6 +82,10 @@ ImageView;obj\Debug\90\res\layout\layouttest.xml
 item;obj\Debug\90\res\values\styles.xml
 LinearLayout;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\51\jl\res\layout\bottomtablayout.xml
 LinearLayout;obj\Debug\90\res\layout\item_home_recyclerview.xml
+LinearLayout;obj\Debug\90\res\layout\layout_bill_confirm.xml
+LinearLayout;obj\Debug\90\res\layout\layout_bill_confirm_change_address.xml
+LinearLayout;obj\Debug\90\res\layout\layout_bill_confirm_change_note.xml
+LinearLayout;obj\Debug\90\res\layout\layout_bill_confirm_change_phone.xml
 LinearLayout;obj\Debug\90\res\layout\layout_food_category.xml
 LinearLayout;obj\Debug\90\res\layout\layout_food_detail.xml
 LinearLayout;obj\Debug\90\res\layout\layout_food_detail_additem.xml
@@ -82,10 +96,12 @@ LinearLayout;obj\Debug\90\res\layout\layout_loading.xml
 LinearLayout;obj\Debug\90\res\layout\layout_login.xml
 LinearLayout;obj\Debug\90\res\layout\layout_login_2.xml
 LinearLayout;obj\Debug\90\res\layout\layout_login_register.xml
+LinearLayout;obj\Debug\90\res\layout\layout_login_register_confirmotp.xml
 LinearLayout;obj\Debug\90\res\layout\layout1.xml
 LinearLayout;obj\Debug\90\res\layout\layouttest.xml
 paths;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\50\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 ProgressBar;obj\Debug\90\res\layout\layout_loading.xml
+RelativeLayout;obj\Debug\90\res\layout\layout_bill_confirm.xml
 RelativeLayout;obj\Debug\90\res\layout\layout_loading.xml
 RelativeLayout;obj\Debug\90\res\layout\layout_login.xml
 resources;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\0\jl\res\values\values.xml
@@ -118,6 +134,7 @@ solid;obj\Debug\90\res\drawable\layout_login_2_button_facebook.xml
 solid;obj\Debug\90\res\drawable\layout_login_2_button_google.xml
 solid;obj\Debug\90\res\drawable\layout_login_2_button_login.xml
 solid;obj\Debug\90\res\drawable\layout_login_button_shape.xml
+Spinner;obj\Debug\90\res\layout\layout_bill_confirm_change_address.xml
 Spinner;obj\Debug\90\res\layout\layout_login_register.xml
 string;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\0\jl\res\values\values.xml
 string;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\2\jl\res\values\strings.xml
@@ -131,6 +148,10 @@ stroke;obj\Debug\90\res\drawable\layout_login_2_button_login.xml
 stroke;obj\Debug\90\res\drawable\layout_login_button_shape.xml
 style;obj\Debug\90\res\values\styles.xml
 TextView;obj\Debug\90\res\layout\item_home_recyclerview.xml
+TextView;obj\Debug\90\res\layout\layout_bill_confirm.xml
+TextView;obj\Debug\90\res\layout\layout_bill_confirm_change_address.xml
+TextView;obj\Debug\90\res\layout\layout_bill_confirm_change_note.xml
+TextView;obj\Debug\90\res\layout\layout_bill_confirm_change_phone.xml
 TextView;obj\Debug\90\res\layout\layout_food_detail.xml
 TextView;obj\Debug\90\res\layout\layout_food_detail_additem.xml
 TextView;obj\Debug\90\res\layout\layout_home.xml

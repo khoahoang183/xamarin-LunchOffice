@@ -31,8 +31,9 @@ namespace LunchOffice_App.Droid.Code.Activities
     {
         ViewPager _viewPagerBanner;
         RecyclerView _recyclerData;
-        Button _btnSearch, _btnMore;
+        Button _btnSearch, _btnMore, _btnShoppingCart;
         Button _btnCategory1, _btnCategory2, _btnCategory3;
+        TextView _tvName;
         private Android.Support.V4.Widget.DrawerLayout _drawerLayout;
         private PagerAdapter _viewPagerBannerAdapter;
         List<BeanMonAn> _listMonAn = new List<BeanMonAn>();
@@ -46,9 +47,7 @@ namespace LunchOffice_App.Droid.Code.Activities
             if (Intent != null)
             {
                 _JsonResult_ListMonAn = Intent.GetStringExtra("JsonResult_ListMonAn");
-
                 Toast.MakeText(this, _JsonResult_ListMonAn, ToastLength.Long).Show();
-
             }
 
         }
@@ -60,6 +59,8 @@ namespace LunchOffice_App.Droid.Code.Activities
             _btnCategory1 = FindViewById<Button>(Resource.Id.Home_btnCategory1);
             _btnCategory2 = FindViewById<Button>(Resource.Id.Home_btnCategory2);
             _btnCategory3 = FindViewById<Button>(Resource.Id.Home_btnCategory3);
+            _tvName = FindViewById<TextView>(Resource.Id.Home_tvName);
+            _btnShoppingCart = FindViewById<Button>(Resource.Id.Home_btnCart);
             _recyclerData = FindViewById<RecyclerView>(Resource.Id.Home_RecyclerView_Data);
             _viewPagerBanner = FindViewById<ViewPager>(Resource.Id.Home_ViewPagerBanner);
             _viewPagerBanner.SetBackgroundResource(Resource.Drawable.img_banner001);
@@ -97,7 +98,23 @@ namespace LunchOffice_App.Droid.Code.Activities
             };
             _btnMore.Click += delegate
             {
-                Intent intent = new Intent(this, typeof(Activity_Login));
+                List<BeanSession> list = new List<BeanSession>();
+                list = SQLiteDataHandler.BeanSession_LoadList();
+                if (list != null && list.Count > 0) // Co session
+                {
+                    //Intent intent = new Intent(this, typeof(Activity_Login));
+                    //StartActivity(intent);
+
+                }
+                else // chua co session
+                {
+                    Intent intent = new Intent(this, typeof(Activity_Login2));
+                    StartActivity(intent);
+                }
+            };
+            _btnShoppingCart.Click += delegate
+            {
+                Intent intent = new Intent(this, typeof(Activity_Bill_Confirm));
                 StartActivity(intent);
             };
 
@@ -107,6 +124,20 @@ namespace LunchOffice_App.Droid.Code.Activities
         private void setupData()
         {
             _listMonAn = SQLiteDataHandler.BeanMonAn_LoadList();
+            // check session
+            List<BeanSession> list = new List<BeanSession>();
+            list = SQLiteDataHandler.BeanSession_LoadList();
+            if (list != null && list.Count > 0) // Co session
+            {
+                //Intent intent = new Intent(this, typeof(Activity_Login));
+                //StartActivity(intent);
+                _tvName.Text = list[0].TaiKhoan;
+
+            }
+            else // chua co session
+            {
+                _tvName.Text = "Nguời Dùng Mới";
+            }
         }
 
 
