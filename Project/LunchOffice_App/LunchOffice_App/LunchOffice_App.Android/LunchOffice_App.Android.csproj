@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\Activities\Activity_Bill_Confirm.cs" />
+    <Compile Include="Code\Activities\Activity_Bill_Confirm_Address.cs" />
     <Compile Include="Code\Activities\Activity_Food_Category.cs" />
     <Compile Include="Code\Activities\Activity_Food_Detail.cs" />
     <Compile Include="Code\Activities\Activity_Home.cs" />
@@ -98,17 +99,22 @@
     <Compile Include="Code\Activities\Activity_Login.cs" />
     <Compile Include="Code\Activities\Activity_Login2.cs" />
     <Compile Include="Code\Activities\Activity_Login_ConfirmOTP.cs" />
+    <Compile Include="Code\Activities\Activity_Logout.cs" />
     <Compile Include="Code\Activities\Activity_Register.cs" />
     <Compile Include="Code\Activities\LeftMenu.cs" />
+    <Compile Include="Code\Adapter\BillConfirmAddressRecyclerViewAdapter.cs" />
     <Compile Include="Code\Adapter\HomeRecyclerViewAdapter.cs" />
     <Compile Include="Code\Adapter\HomeViewPagerBannerAdapter.cs" />
     <Compile Include="Code\Bean\BeanAPI.cs" />
+    <Compile Include="Code\Bean\BeanDiaChi.cs" />
     <Compile Include="Code\Bean\BeanDonHang.cs" />
     <Compile Include="Code\Bean\BeanMonAn.cs" />
     <Compile Include="Code\Bean\BeanNguoiDung.cs" />
     <Compile Include="Code\Bean\BeanSession.cs" />
+    <Compile Include="Code\Bean\BeanShoppingCart.cs" />
     <Compile Include="Code\Bean\DataWardDistrict.cs" />
     <Compile Include="Code\Cmm\CmmFunction.cs" />
+    <Compile Include="Code\Cmm\CmmVar.cs" />
     <Compile Include="Code\Fragments\Fragment_Home_Banner.cs" />
     <Compile Include="Code\SQLite\SQLiteDataHandler.cs" />
     <Compile Include="Code\SQLite\SQLiteDbUtilities.cs" />
@@ -337,6 +343,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Layout_Login_Register_ConfirmOTP.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Layout_Logout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Item_Bill_Confirm_Change_Address.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

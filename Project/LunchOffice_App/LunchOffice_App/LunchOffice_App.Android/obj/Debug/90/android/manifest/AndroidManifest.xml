@@ -8,6 +8,7 @@
   <application android:label="LunchOffice_App.Android" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
     <activity android:label="Lunch Office" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5d455a9edea21171133419489d36f3762.Activity_Login" />
     <activity android:label="Activity_Bill_Confirm" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Bill_Confirm" />
+    <activity android:label="Activity_Bill_Confirm_Address" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Bill_Confirm_Address" />
     <activity android:label="Activity_Food_Category" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Food_Category" />
     <activity android:label="Activity_Food_Detail" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Food_Detail" />
     <activity android:label="Activity_Home" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Home" />
@@ -19,6 +20,7 @@
     </activity>
     <activity android:label="Activity_Login2" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Login2" />
     <activity android:label="Activity_Login_ConfirmOTP" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Login_ConfirmOTP" />
+    <activity android:label="Activity_Logout" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Logout" />
     <activity android:label="Activity_Register" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="md5c677c6669257f0403bef59d581194e41.Activity_Register" />
     <activity android:label="LeftMenu" android:name="md5c677c6669257f0403bef59d581194e41.LeftMenu" />
     <service android:name="md5dcb6eccdc824e0677ffae8ccdde42930.KeepAliveService" />

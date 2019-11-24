@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace LunchOffice_App.Droid.Code.Fragments
 {
-    public class Fragment_Home_Banner : Fragment
+    public class Fragment_Home_Banner : Android.Support.V4.App.Fragment
     {
         ImageView _imgBanner;
         int _img;

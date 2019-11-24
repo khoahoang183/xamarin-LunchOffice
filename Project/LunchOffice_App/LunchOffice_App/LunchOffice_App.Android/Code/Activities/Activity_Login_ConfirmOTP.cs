@@ -161,18 +161,21 @@ namespace LunchOffice_App.Droid.Code.Activities
                 {
                     // get List Mon An
                     await Utilities_API.API_ConfirmOTP(_MaNguoiDung, _edtOTP.Text);
-                    bool result = Utilities_API.RESULT_APIOTP_BOOL;
-                    if (result == true)
+                    bool result_confirm = Utilities_API.RESULT_APIOTP_BOOL;
+                    BeanNguoiDung result = Utilities_API.RESULT_APICONFIRMOTP_BEANNGUOIDUNG;
+                    if (result_confirm == true)
                     {
                         Toast.MakeText(this, "Xác nhận OTP thành công!", ToastLength.Long).Show();
                         // Add session
-                        BeanSession session = new BeanSession(_MaNguoiDung, _TaiKhoan, _MatKhau);
+                        BeanSession session = new BeanSession(result.MaNguoiDung, result.TaiKhoan, result.MatKhau, result.HoTen, result.GioiTinh,
+                            result.NgaySinh, result.HinhAnh, result.Email, result.LoaiNguoiDung, result.KhoaNguoiDung, result.MaOtp, result.KichHoat,
+                            result.Created, result.Modified, result.CreatedBy, result.ModifiedBy);
                         SQLiteDataHandler.BeanSession_AddSession(session);
                         Finish();
                         Intent intent = new Intent(this, typeof(Activity_Home));
                         StartActivity(intent);
                     }
-                    else if (result == false)
+                    else if (result_confirm == false)
                     {
                         Toast.MakeText(this, "Xác nhận OTP thất bại!", ToastLength.Long).Show();
                     }

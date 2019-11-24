@@ -101,9 +101,26 @@ namespace LunchOffice_App.Droid.Code.SQLite
             {
                 if (File.Exists(DbFilePath))
                 {
-                    List<BeanMonAn> data = BeanMonAn_LoadList();
                     db = new SQLiteConnection(DbFilePath);
                     db.Insert(item);
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        public static bool BeanMonAn_Update(BeanMonAn item)
+        {
+            try
+            {
+                if (File.Exists(DbFilePath))
+                {
+                    List<BeanMonAn> data = BeanMonAn_LoadList();
+                    db = new SQLiteConnection(DbFilePath);
+                    db.Update(item);
                     return true;
                 }
                 return false;

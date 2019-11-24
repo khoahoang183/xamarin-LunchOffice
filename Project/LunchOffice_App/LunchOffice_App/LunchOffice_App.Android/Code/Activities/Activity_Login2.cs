@@ -63,7 +63,9 @@ namespace LunchOffice_App.Droid.Code.Activities
                         // kiem tra coi co confirm otp chua
                         if (result.KichHoat == true) // da kich hoat
                         {
-                            BeanSession session = new BeanSession(result.MaNguoiDung, result.TaiKhoan, result.MatKhau);
+                            BeanSession session = new BeanSession(result.MaNguoiDung, result.TaiKhoan, result.MatKhau, result.HoTen, result.GioiTinh,
+                                result.NgaySinh, result.HinhAnh, result.Email, result.LoaiNguoiDung, result.KhoaNguoiDung, result.MaOtp, result.KichHoat,
+                                result.Created, result.Modified, result.CreatedBy, result.ModifiedBy);
                             SQLiteDataHandler.BeanSession_AddSession(session);
                             Finish();
                             Intent intent = new Intent(this, typeof(Activity_Home));
@@ -78,7 +80,6 @@ namespace LunchOffice_App.Droid.Code.Activities
                             intent.PutExtra("MatKhau", result.MatKhau);
                             StartActivity(intent);
                         }
-
                     }
                     else
                     {

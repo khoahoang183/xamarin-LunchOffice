@@ -39,6 +39,8 @@
             android:id="@+id/linearLayout6">
             <TextView
                 android:text="30.000d"
+                android:textStyle="bold"
+                android:textColor="@color/Orange_MainColor"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

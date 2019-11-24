@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Android.App;
@@ -19,17 +20,21 @@ namespace LunchOffice_App.Droid.Code.Utilities
 {
     public static class Utilities_API
     {
-        public static string _SiteName = "https://836a6b63.ngrok.io";
+        public static string _SiteName = "https://09006fbe.ngrok.io";
+        public static string _SiteImageUrl = "/Assets/Images/HinhMonAn/";
         public static string _APIDetailName = ""; // api url
         public static string _JsonResult = "";
         public static BeanAPI _BeanAPIResult = null;
         public static HttpClient client = null;
 
         public static List<BeanMonAn> _lstMonAn = new List<BeanMonAn>();
+
         public static BeanNguoiDung RESULT_APILOGIN_BEANNGUOIDUNG = new BeanNguoiDung();
+        public static BeanNguoiDung RESULT_APICONFIRMOTP_BEANNGUOIDUNG = new BeanNguoiDung();
+        public static BeanNguoiDung RESULT_APIREGISTER_BEANNGUOIDUNG = new BeanNguoiDung();
         public static List<BeanDonHang> RESULT_APIGET_LISTDONHANG = new List<BeanDonHang>();
+        public static List<BeanDiaChi> RESULT_APIGET_LISTDIACHI_BYMANGUOIDUNG = new List<BeanDiaChi>();
         public static bool RESULT_APIOTP_BOOL;
-        public static string RESULT_APIREGISTER_MANGUOIDUNG;
         public static async Task<BeanAPI> ConsumeAPI(string uri)
         {
             client = new HttpClient();
@@ -77,6 +82,34 @@ namespace LunchOffice_App.Droid.Code.Utilities
             }
 
         }
+        /// <summary>
+        /// Neu thanh cong -> List BeanDiaChi, that bai -> null
+        /// </summary>
+        /// <returns></returns>
+        public static async Task API_GetListDiaChiByMaNguoiDung(string MaNguoiDung)
+        {
+            try
+            {
+                _APIDetailName = "/Link/ApiDiaChi.ashx?func=select";
+                _BeanAPIResult = new BeanAPI();
+                string API = _SiteName + _APIDetailName;
+                _BeanAPIResult = await Utilities_API.ConsumeAPI(API);
+                if (_BeanAPIResult.status.Equals("SUCCESS"))
+                {
+                    if (!String.IsNullOrEmpty(_BeanAPIResult.data))
+                    {
+                        RESULT_APIGET_LISTDIACHI_BYMANGUOIDUNG = JsonConvert.DeserializeObject<List<BeanDiaChi>>(_BeanAPIResult.data);
+                    }
+                }
+                //return _lstMonAn;
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
 
         /// <summary>
         /// Neu thanh cong -> BeanNguoiDung, that bai -> null
@@ -88,6 +121,7 @@ namespace LunchOffice_App.Droid.Code.Utilities
         {
             try
             {
+                //http://localhost:63211/Link/ApiNguoiDung.ashx?func=signin&data={TaiKhoan:%22user1%22,MatKhau:%22123456%22}
                 _APIDetailName = "/Link/ApiNguoiDung.ashx?func=signin";
                 _BeanAPIResult = new BeanAPI();
                 client = new HttpClient();
@@ -95,7 +129,7 @@ namespace LunchOffice_App.Droid.Code.Utilities
 
                 var jsonData = new FormUrlEncodedContent(new[]
                 {
-                    new KeyValuePair<string, string>("Data", "{TaiKhoan:"+id+"+, MatKhau:"+password+"}")
+                    new KeyValuePair<string, string>("Data", "{TaiKhoan:\""+id+"\", MatKhau:\""+password+"\"}")
                 });
                 string a = jsonData.ToString();
                 HttpResponseMessage response = await client.PostAsync(_APIDetailName, jsonData);
@@ -158,12 +192,12 @@ namespace LunchOffice_App.Droid.Code.Utilities
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static async Task API_GetRegister(string TaiKhoan, string password)
+        public static async Task API_GetRegister(string TaiKhoan, string Email, string password)
         {
             try
             {
-                RESULT_APIREGISTER_MANGUOIDUNG = "";
-                //http://localhost:63211/Link/ApiNguoiDung.ashx?func=signup&data={MaNguoiDung:1}
+                RESULT_APIREGISTER_BEANNGUOIDUNG = new BeanNguoiDung();
+                //http://c3da38bf.ngrok.io/Link/ApiNguoiDung.ashx?func=signup&data={TaiKhoan:khoatest,Email:hoangdangkhoa.m9@gmail.com,MatKhau:Aa123456}
                 _APIDetailName = "/Link/ApiNguoiDung.ashx?func=signup";
                 _BeanAPIResult = new BeanAPI();
                 client = new HttpClient();
@@ -171,7 +205,10 @@ namespace LunchOffice_App.Droid.Code.Utilities
 
                 var jsonData = new FormUrlEncodedContent(new[]
                 {
-                    new KeyValuePair<string, string>("Data", "{TaiKhoan:"+TaiKhoan+"+, MatKhau:"+password+"}")
+                    new KeyValuePair<string, string>("Data", "{TaiKhoan:\""+TaiKhoan+"\"," +
+                                                             "MatKhau:\""+password+"\"," +
+                                                             "Email:\""+Email+"\"}"
+                                                     )
                 });
                 HttpResponseMessage response = await client.PostAsync(_APIDetailName, jsonData);
                 if (response.IsSuccessStatusCode) // thanh cong -> lay ket qua ve
@@ -181,7 +218,11 @@ namespace LunchOffice_App.Droid.Code.Utilities
                     {
                         if (!String.IsNullOrEmpty(_BeanAPIResult.data))
                         {
-                            RESULT_APIREGISTER_MANGUOIDUNG = _BeanAPIResult.data;
+                            List<BeanNguoiDung> temp = JsonConvert.DeserializeObject<List<BeanNguoiDung>>(_BeanAPIResult.data);
+                            if (temp.Count>0)
+                            {
+                                RESULT_APIREGISTER_BEANNGUOIDUNG = temp[0];
+                            }
                         }
                     }
                 }
@@ -205,14 +246,14 @@ namespace LunchOffice_App.Droid.Code.Utilities
             try
             {
                 RESULT_APIOTP_BOOL = false;
-                _APIDetailName = "/api/values";
+                _APIDetailName = "/Link/ApiNguoiDung.ashx?func=authentication";
                 _BeanAPIResult = new BeanAPI();
                 client = new HttpClient();
                 client.BaseAddress = new Uri(_SiteName);
 
                 var jsonData = new FormUrlEncodedContent(new[]
                 {
-                    new KeyValuePair<string, string>("Data", "{MaNguoiDung:"+MaNguoiDung+"+, MaOTP:"+OTP+"}")
+                    new KeyValuePair<string, string>("Data", "{MaNguoiDung:\""+MaNguoiDung+"\", MaOTP:\""+OTP+"\"}")
                 });
 
                 HttpResponseMessage response = await client.PostAsync(_APIDetailName, jsonData);
@@ -222,6 +263,7 @@ namespace LunchOffice_App.Droid.Code.Utilities
                     if (_BeanAPIResult.status.Equals("SUCCESS"))
                     {
                         RESULT_APIOTP_BOOL = true;
+                        RESULT_APICONFIRMOTP_BEANNGUOIDUNG = JsonConvert.DeserializeObject<BeanNguoiDung>(_BeanAPIResult.data);
                     }
                 }
             }

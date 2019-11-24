@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite;
 
 namespace LunchOffice_App.Droid.Code.Bean
 {
@@ -32,6 +33,7 @@ namespace LunchOffice_App.Droid.Code.Bean
             ModifiedBy = modifiedBy;
         }
 
+        [PrimaryKey]
         public int MaMon { get; set; }
 
         public string TenMon { get; set; }

@@ -18,6 +18,7 @@ using LunchOffice_App.Droid.Code.Bean;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using LunchOffice_App.Droid.Code.SQLite;
+using LunchOffice_App.Droid.Code.Cmm;
 
 namespace LunchOffice_App.Droid.Code.Activities
 {
@@ -32,7 +33,6 @@ namespace LunchOffice_App.Droid.Code.Activities
         private ProgressBar ProgressBar;
         #region Result From API
         public static List<BeanMonAn> API_RESULT_LISTMONAN = new List<BeanMonAn>();
-
         #endregion
         protected override async void OnCreate(Bundle savedInstanceState)
         {
@@ -44,6 +44,7 @@ namespace LunchOffice_App.Droid.Code.Activities
             await Utilities_API.API_GetListMonAn();
             API_RESULT_LISTMONAN = Utilities_API._lstMonAn;
 
+            //BeanNguoiDung test = JsonConvert.DeserializeObject<BeanNguoiDung>(json);
 
 
             setupSQLite();
@@ -51,40 +52,44 @@ namespace LunchOffice_App.Droid.Code.Activities
             Intent intent = new Intent(this, typeof(Activity_Home));
             StartActivity(intent);
         }
-
         private void getLayout()
         {
             SetContentView(Resource.Layout.Layout_Loading);
-            ProgressBar= FindViewById<ProgressBar>(Resource.Id.progressDownload);
+            ProgressBar = FindViewById<ProgressBar>(Resource.Id.progressDownload);
         }
-
         private void setupSQLite()
         {
-            SetupTestData(); // de test
             SQLiteDataHandler.CreateDBSQLite();
-            if (API_RESULT_LISTMONAN != null && API_RESULT_LISTMONAN.Count >0)
+            if (API_RESULT_LISTMONAN != null && API_RESULT_LISTMONAN.Count > 0)
             {
-                SQLiteDataHandler.BeanMonAn_ClearList();
+                List<BeanMonAn> listMonAn = new List<BeanMonAn>();
+                listMonAn = SQLiteDataHandler.BeanMonAn_LoadList();
                 foreach (BeanMonAn item in API_RESULT_LISTMONAN)
                 {
-                    SQLiteDataHandler.BeanMonAn_Insert(item);
+                    if (String.IsNullOrEmpty(item.SearchData)) // de search
+                    {
+                        item.SearchData = CmmFunction.RemoveVietNamAccent(item.TenMon) + " " + CmmFunction.RemoveVietNamAccent(item.MieuTa);
+                    }
+                    if (listMonAn.Any(x => x.MaMon.Equals(item.MaMon))) // da ton tai trong db
+                    {
+                        BeanMonAn temp = listMonAn.Find(x => x.MaMon.Equals(item.MaMon));
+                        if (temp.Modified != item.Modified) // cap nhat moi
+                        {
+                            SQLiteDataHandler.BeanMonAn_Update(item);
+                            Utilities_DownloadImageFromURL download = new Utilities_DownloadImageFromURL(this);
+                            string url = Utilities_API._SiteName + Utilities_API._SiteImageUrl + item.HinhAnh;
+                            download.Execute(url);
+                        }
+                    }
+                    else
+                    {
+                        SQLiteDataHandler.BeanMonAn_Insert(item);
+                        Utilities_DownloadImageFromURL download = new Utilities_DownloadImageFromURL(this);
+                        string url = Utilities_API._SiteName + Utilities_API._SiteImageUrl + item.HinhAnh;
+                        download.Execute(url);
+                    }
                 }
             }
-        }
-
-        private void SetupTestData()
-        {
-            //BeanMonAn item1 = new BeanMonAn(001, "Cơm Chiên Dương Châu", 1, "Mô tả", "https://www.gulfshorelife.com/wp-content/uploads/2019/07/Jul19_Appetite1-256x256.jpg", 50000, 1, DateTime.Now, DateTime.Now, "", "");
-            //BeanMonAn item2 = new BeanMonAn(002, "Cơm Sườn Nướng", 1, "Mô tả", "https://www.gulfshorelife.com/wp-content/uploads/2019/07/Jul19_Appetite1-256x256.jpg", 120000, 1, DateTime.Now, DateTime.Now, "", "");
-            //BeanMonAn item3 = new BeanMonAn(003, "Cơm Cá Hú Kho Tộ", 1, "Mô tả", "https://www.gulfshorelife.com/wp-content/uploads/2019/07/Jul19_Appetite1-256x256.jpg", 75000, 1, DateTime.Now, DateTime.Now, "", "");
-            //BeanMonAn item4 = new BeanMonAn(004, "Cơm Sườn Xào Chua Ngọt", 1, "Mô tả", "https://www.gulfshorelife.com/wp-content/uploads/2019/07/Jul19_Appetite1-256x256.jpg", 60000, 1, DateTime.Now, DateTime.Now, "", "");
-            //BeanMonAn item5 = new BeanMonAn(005, "Cơm Canh Chua Cá Hú", 1, "Mô tả", "https://www.gulfshorelife.com/wp-content/uploads/2019/07/Jul19_Appetite1-256x256.jpg", 85000, 1, DateTime.Now, DateTime.Now, "", "");
-            //BeanMonAn item6 = new BeanMonAn(006, "Cơm Mắm Chưng", 1, "Mô tả", "https://www.gulfshorelife.com/wp-content/uploads/2019/07/Jul19_Appetite1-256x256.jpg", 30000, 1, DateTime.Now, DateTime.Now, "", "");
-            //BeanMonAn item7 = new BeanMonAn(007, "Bùn Bò Huế", 2, "Mô tả", "https://www.gulfshorelife.com/wp-content/uploads/2019/07/Jul19_Appetite1-256x256.jpg", 100000, 1, DateTime.Now, DateTime.Now, "", "");
-            //BeanMonAn item8 = new BeanMonAn(008, "Phở Bò", 2, "Mô tả", "https://www.gulfshorelife.com/wp-content/uploads/2019/07/Jul19_Appetite1-256x256.jpg", 64000, 1, DateTime.Now, DateTime.Now, "", "");
-            //BeanMonAn item9 = new BeanMonAn(009, "Nước Suối", 3, "Mô tả", "https://www.gulfshorelife.com/wp-content/uploads/2019/07/Jul19_Appetite1-256x256.jpg", 10000, 1, DateTime.Now, DateTime.Now, "", "");
-            //API_RESULT_LISTMONAN.Add(item1); API_RESULT_LISTMONAN.Add(item2); API_RESULT_LISTMONAN.Add(item3); API_RESULT_LISTMONAN.Add(item4); API_RESULT_LISTMONAN.Add(item5);
-            //API_RESULT_LISTMONAN.Add(item6); API_RESULT_LISTMONAN.Add(item7); API_RESULT_LISTMONAN.Add(item8); API_RESULT_LISTMONAN.Add(item9);
         }
 
         #region Permission
@@ -96,7 +101,6 @@ namespace LunchOffice_App.Droid.Code.Activities
                 ActivityCompat.RequestPermissions(this, _permissionList, REQUEST_PERMISSION_CODE);
             }
         }
-
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
             switch (requestCode)
@@ -116,7 +120,6 @@ namespace LunchOffice_App.Droid.Code.Activities
                     break;
             }
         }
-
         #endregion
     }
 }

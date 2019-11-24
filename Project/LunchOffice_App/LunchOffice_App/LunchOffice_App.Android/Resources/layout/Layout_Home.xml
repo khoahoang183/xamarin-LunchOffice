@@ -52,7 +52,6 @@
                     android:layout_height="match_parent"
                     android:id="@+id/linearLayout6"
                     android:layout_weight="7">
-
                     <TextView
                         android:text="User Hoàng Đăng Khoa"
                         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -60,8 +59,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/Home_tvName"
                         android:layout_marginLeft="8dp"
-                        android:textStyle="bold" />
-
+                        android:textStyle="bold"
+                        android:singleLine="true"/>
                 </LinearLayout>
                 <LinearLayout
                     android:orientation="horizontal"
@@ -71,36 +70,32 @@
                     android:layout_height="match_parent"
                     android:id="@+id/linearLayout7"
                     android:layout_weight="3"
-                    android:layout_marginBottom="2dp">
-                    <Button
-                        android:layout_marginLeft="8dp"
-                        android:text="."
-                        android:layout_width="32dp"
+                    android:layout_marginBottom="2dp"
+                    android:gravity="right">
+                    <ImageView
+                        android:src="@drawable/ic_search"
+                        android:layout_width="33dp"
                         android:layout_height="33dp"
-                        android:drawableStart="@drawable/ic_shoppingcart"
-                        android:id="@+id/Home_btnCart"
-                        android:background="@drawable/layout_home_button_shape"/>
-                    <Button
-                        android:text="."
-                        android:layout_width="32dp"
-                        android:layout_height="33dp"
-                        android:drawableStart="@drawable/ic_search"
                         android:id="@+id/Home_btnSearch"
-                                                android:layout_marginLeft="8dp"
-                        android:background="@drawable/layout_home_button_shape"/>
-                    <Button
-                        android:text="."
-                        android:layout_width="32dp"
+                        android:tint="#888"
+                        android:padding="1dp"
+                        android:layout_marginRight="8dp"/>
+                    <ImageView
+                        android:src="@drawable/ic_shoppingcart"
+                        android:layout_width="33dp"
                         android:layout_height="33dp"
-                        android:drawableStart="@drawable/ic_user"
+                        android:id="@+id/Home_btnCart"
+                        android:tint="#888"
+                        android:layout_marginRight="8dp"/>
+                    <ImageView
+                        android:src="@drawable/ic_user"
+                        android:layout_width="33dp"
+                        android:layout_height="33dp"
                         android:id="@+id/Home_btnMore"
-                        android:layout_marginLeft="8dp"
-                        android:background="@drawable/layout_home_button_shape"/>
-
+                        android:tint="#888"
+                        android:layout_marginRight="8dp"/>
                 </LinearLayout>
-
             </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout
@@ -130,7 +125,7 @@
                     android:paddingBottom="8dp"
                     android:id="@+id/Home_ViewPagerBanner"
                     android:layout_weight="2.5"
-                    android:background="#ffc2edee" />
+                    android:background="#fff" />
             </LinearLayout>
 
             <LinearLayout
@@ -160,7 +155,8 @@
                         android:textAllCaps="false"
                         android:drawableTop="@drawable/ic_food_category_1_small"
                         android:textStyle="bold"
-                        android:layout_marginBottom="0.5dp"/>
+                        android:layout_marginBottom="0.5dp"
+                        android:textSize="14sp"/>
                     <Button
                         android:text="Món nước"
                         android:layout_width="wrap_content"
@@ -174,7 +170,8 @@
                         android:textStyle="bold"
                         android:layout_marginLeft="0.5dp"
                         android:layout_marginRight="0.5dp"
-                        android:layout_marginBottom="0.5dp"/>
+                        android:layout_marginBottom="0.5dp"
+                        android:textSize="14sp"/>
                     <Button
                         android:text="Giải khát"
                         android:layout_width="wrap_content"
@@ -186,7 +183,8 @@
                         android:textAllCaps="false"
                         android:drawableTop="@drawable/ic_food_category_3_smalla"
                         android:textStyle="bold"
-                        android:layout_marginBottom="0.5dp"/>
+                        android:layout_marginBottom="0.5dp"
+                        android:textSize="14sp"/>
                 </LinearLayout>
             </LinearLayout>
 

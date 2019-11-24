@@ -9,11 +9,13 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite;
 
 namespace LunchOffice_App.Droid.Code.Bean
 {
     public class BeanNguoiDung
     {
+        [PrimaryKey]
         public string MaNguoiDung { get; set; }
 
         public string TaiKhoan { get; set; }

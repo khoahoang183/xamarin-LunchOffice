@@ -398,7 +398,6 @@ F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_Ap
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md5f92e0daf340890c9667469657ee2ece8\LabelRenderer.java
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\android\support\coordinatorlayout\R.java
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md53365aff7e0b136a678f1bfb967cb0555\HomeRecyclerViewAdapter.java
-F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md53365aff7e0b136a678f1bfb967cb0555\HomeRecyclerViewAdapter_MyViewHolder.java
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md53365aff7e0b136a678f1bfb967cb0555\HomeViewPagerBannerAdapter.java
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\mono\MonoPackageManager_Resources.java
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md5dcb6eccdc824e0677ffae8ccdde42930\CustomTabsServiceConnectionImpl.java
@@ -619,4 +618,12 @@ F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_Ap
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\res\layout\layout_login_register_confirmotp.xml
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md5c677c6669257f0403bef59d581194e41\Activity_Login_ConfirmOTP.java
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\assets\Mono.Android.pdb
+F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\res\layout\layout_logout.xml
+F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md5c677c6669257f0403bef59d581194e41\Activity_Logout.java
 F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\bin\Debug\LunchOffice_App.dll.mdb
+F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md53365aff7e0b136a678f1bfb967cb0555\MyViewHolder.java
+F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md53365aff7e0b136a678f1bfb967cb0555\ViewPagerListenerForActionBar.java
+F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\res\layout\item_bill_confirm_change_address.xml
+F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md53365aff7e0b136a678f1bfb967cb0555\AddressViewHolder.java
+F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md53365aff7e0b136a678f1bfb967cb0555\BillConfirmAddressRecyclerViewAdapter.java
+F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\android\src\md5c677c6669257f0403bef59d581194e41\Activity_Bill_Confirm_Address.java

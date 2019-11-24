@@ -128,64 +128,71 @@ namespace LunchOffice_App.Droid.Code.Activities
         }
         private async void btnRegisterClick(object sender, EventArgs e)
         {
-            await Utilities_API.API_GetRegister(_edtEmail.Text, _edtPassword.Text);
-            string result_MaNguoiDung = Utilities_API.RESULT_APIREGISTER_MANGUOIDUNG;
-            if (String.IsNullOrEmpty(result_MaNguoiDung)) // dang ky thanh cong
+            if (checkValidateData() == true)
             {
-                Toast.MakeText(this, "Đăng ký thành công!", ToastLength.Long).Show();
-                Finish();
-                Intent intent = new Intent(this, typeof(Activity_Login_ConfirmOTP));
-                intent.PutExtra("MaNguoiDung", result_MaNguoiDung);
-                intent.PutExtra("TaiKhoan", _edtEmail.Text);
-                intent.PutExtra("MatKhau", _edtPassword.Text);
-                StartActivity(intent);
-            }
-            else
-            {
-                Toast.MakeText(this, "Đăng ký thất bại!", ToastLength.Long).Show();
-            }        
-    }
-    #endregion
-    private bool checkValidateData()
-    {
-        bool _result = true;
-        string _resultText = "";
-        if (_edtID.Text.Equals("") || _edtPassword.Text.Equals("") || _edtConfirmPassword.Text.Equals("") ||
-            _edtAddress.Text.Equals("") || _edtPhone.Text.Equals("") || _edtEmail.Text.Equals(""))
-        {
-            if (_edtID.Text.Equals("")) _edtID.RequestFocus();
-            if (_edtPassword.Text.Equals("")) _edtPassword.RequestFocus();
-            if (_edtConfirmPassword.Text.Equals("")) _edtConfirmPassword.RequestFocus();
-            if (_edtAddress.Text.Equals("")) _edtAddress.RequestFocus();
-            if (_edtPhone.Text.Equals("")) _edtPhone.RequestFocus();
-            if (_edtEmail.Text.Equals("")) _edtEmail.RequestFocus();
-            _result = false;
-            _resultText += "Vui lòng nhập đủ dữ liệu!";
-        }
-        else // du lieu khac null
-        {
-            if (!_edtPassword.Text.Equals(_edtConfirmPassword.Text))
-            {
-                _result = false;
-                _resultText += "Mật khẩu nhập lại không đúng!";
-            }
-            else if (!_edtEmail.Text.Contains("@"))
-            {
-                _result = false;
-                _resultText += "Email phải có dạng abc@xyz!";
+                await Utilities_API.API_GetRegister(_edtID.Text, _edtEmail.Text, _edtPassword.Text);
+                BeanNguoiDung result = Utilities_API.RESULT_APIREGISTER_BEANNGUOIDUNG;
+                if (result != null) // dang ky thanh cong
+                {
+                    if (!String.IsNullOrEmpty(result.MaNguoiDung) && !String.IsNullOrEmpty(result.TaiKhoan) && !String.IsNullOrEmpty(result.MatKhau)
+                        && result.KichHoat == false) // thanh cong - chua kich hoat
+                    {
+                        Toast.MakeText(this, "Đăng ký thành công!", ToastLength.Long).Show();
+                        Finish();
+                        Intent intent = new Intent(this, typeof(Activity_Login_ConfirmOTP));
+                        intent.PutExtra("MaNguoiDung", result.MaNguoiDung);
+                        intent.PutExtra("TaiKhoan", result.TaiKhoan);
+                        intent.PutExtra("MatKhau", result.MatKhau);
+                        StartActivity(intent);
+                    }
+                    else
+                    {
+                        Toast.MakeText(this, "Đăng ký thất bại!", ToastLength.Long).Show();
+                    }
+                }
             }
         }
-        if (!_resultText.Equals("")) Toast.MakeText(this, _resultText, ToastLength.Long).Show();
-        return _result;
+        #endregion
+        private bool checkValidateData()
+        {
+            bool _result = true;
+            string _resultText = "";
+            if (_edtID.Text.Equals("") || _edtPassword.Text.Equals("") || _edtConfirmPassword.Text.Equals("") ||
+                _edtAddress.Text.Equals("") || _edtPhone.Text.Equals("") || _edtEmail.Text.Equals(""))
+            {
+                if (_edtID.Text.Equals("")) _edtID.RequestFocus();
+                if (_edtPassword.Text.Equals("")) _edtPassword.RequestFocus();
+                if (_edtConfirmPassword.Text.Equals("")) _edtConfirmPassword.RequestFocus();
+                if (_edtAddress.Text.Equals("")) _edtAddress.RequestFocus();
+                if (_edtPhone.Text.Equals("")) _edtPhone.RequestFocus();
+                if (_edtEmail.Text.Equals("")) _edtEmail.RequestFocus();
+                _result = false;
+                _resultText += "Vui lòng nhập đủ dữ liệu!";
+            }
+            else // du lieu khac null
+            {
+                if (!_edtPassword.Text.Equals(_edtConfirmPassword.Text))
+                {
+                    _result = false;
+                    _resultText += "Mật khẩu nhập lại không đúng!";
+                }
+                else if (!_edtEmail.Text.Contains("@"))
+                {
+                    _result = false;
+                    _resultText += "Email phải có dạng abc@xyz!";
+                }
+            }
+            if (!_resultText.Equals("")) Toast.MakeText(this, _resultText, ToastLength.Long).Show();
+            return _result;
+        }
+        private void loadTestData()
+        {
+            _edtID.Text = "khoauser";
+            _edtPassword.Text = "Aa123456";
+            _edtConfirmPassword.Text = "Aa123456";
+            _edtAddress.Text = "123 Nguyễn Trãi";
+            _edtPhone.Text = "0834673896";
+            _edtEmail.Text = "hoangdangkhoa.m9@gmail.com";
+        }
     }
-    private void loadTestData()
-    {
-        _edtID.Text = "khoatest";
-        _edtPassword.Text = "password";
-        _edtConfirmPassword.Text = "password";
-        _edtAddress.Text = "test";
-        _edtPhone.Text = "123456789";
-        _edtEmail.Text = "khoa@gmail.com";
-    }
-}
 }

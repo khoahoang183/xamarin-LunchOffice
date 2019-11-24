@@ -16,6 +16,7 @@ using Android.Views.InputMethods;
 using Android.Widget;
 using LunchOffice_App.Droid.Code.Adapter;
 using LunchOffice_App.Droid.Code.Bean;
+using LunchOffice_App.Droid.Code.Cmm;
 using LunchOffice_App.Droid.Code.SQLite;
 
 namespace LunchOffice_App.Droid.Code.Activities
@@ -35,7 +36,7 @@ namespace LunchOffice_App.Droid.Code.Activities
         {
             base.OnCreate(savedInstanceState);
             getLayout();
-            // Create your application here
+            setupData();
         }
         private void getLayout()
         {
@@ -57,16 +58,26 @@ namespace LunchOffice_App.Droid.Code.Activities
             {
                 _edtSearch.Text = null;
             };
-            setupData();
+
         }
 
         private void SearchData(object sender, TextChangedEventArgs e)
         {
-            string content = _edtSearch.Text.Trim();
-            if (!String.IsNullOrEmpty(content))
+
+            _listMonAn_Filtered = new List<BeanMonAn>();
+            if (!String.IsNullOrEmpty(_edtSearch.Text))
             {
+                string content = CmmFunction.RemoveVietNamAccent(_edtSearch.Text.Trim().ToLowerInvariant());
                 _imgDeleteText.Visibility = ViewStates.Visible;
-                _listMonAn_Filtered = _listMonAn.Where(x => x.TenMon.Contains(content)).ToList();
+                foreach (BeanMonAn item in _listMonAn)
+                {
+                    string _name = CmmFunction.RemoveVietNamAccent(item.TenMon).ToLowerInvariant();
+                    string _search = CmmFunction.RemoveVietNamAccent(item.SearchData).ToLowerInvariant();
+                    if (_name.Contains(content) || _search.Contains(content))
+                    {
+                        _listMonAn_Filtered.Add(item);
+                    }
+                }
             }
             else
             {
@@ -74,17 +85,17 @@ namespace LunchOffice_App.Droid.Code.Activities
                 _listMonAn_Filtered = _listMonAn;
             }
             HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(this, _listMonAn_Filtered, _category);
+            adapter.ItemClick += Click_RecyclerData;
             _recyclerData = FindViewById<RecyclerView>(Resource.Id.FoodCategory_RecyclerView_Data);
             _recyclerData.SetAdapter(adapter);
             _recyclerData.SetLayoutManager(new LinearLayoutManager(this));
         }
-
-
         private void setupData()
         {
             _listMonAn = SQLiteDataHandler.BeanMonAn_LoadList();
             filterData();
             HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(this, _listMonAn_Filtered, _category);
+            adapter.ItemClick += Click_RecyclerData;
             _recyclerData = FindViewById<RecyclerView>(Resource.Id.FoodCategory_RecyclerView_Data);
             _recyclerData.SetAdapter(adapter);
             _recyclerData.SetLayoutManager(new LinearLayoutManager(this));
@@ -93,20 +104,27 @@ namespace LunchOffice_App.Droid.Code.Activities
         {
             if (_category == 0)
             {
-                _listMonAn_Filtered = _listMonAn;
+                _listMonAn = _listMonAn;
             }
             else if (_category == 1)
             {
-                _listMonAn_Filtered = _listMonAn.Where(x => x.MaLoai == 1).ToList();
+                _listMonAn = _listMonAn.Where(x => x.MaLoai == 1).ToList();
             }
             else if (_category == 2)
             {
-                _listMonAn_Filtered = _listMonAn.Where(x => x.MaLoai == 2).ToList();
+                _listMonAn = _listMonAn.Where(x => x.MaLoai == 2).ToList();
             }
             else if (_category == 3)
             {
-                _listMonAn_Filtered = _listMonAn.Where(x => x.MaLoai == 3).ToList();
+                _listMonAn = _listMonAn.Where(x => x.MaLoai == 3).ToList();
             }
+            _listMonAn_Filtered = _listMonAn;
+        }
+        private void Click_RecyclerData(object sender, int e)
+        {
+            Intent intent = new Intent(this, typeof(Activity_Food_Detail));
+            intent.PutExtra("Detail_MaMon", _listMonAn_Filtered[e].MaMon.ToString());
+            StartActivity(intent);
         }
     }
 }

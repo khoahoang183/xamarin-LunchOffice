@@ -9,27 +9,38 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.Widget;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using LunchOffice_App.Droid.Code.Bean;
 using LunchOffice_App.Droid.Code.Cmm;
+using LunchOffice_App.Droid.Code.SQLite;
+using static Android.App.ActionBar;
 
 namespace LunchOffice_App.Droid.Code.Activities
 {
     [Activity(Label = "Activity_Bill_Confirm", Theme = "@style/MainTheme", ScreenOrientation = ScreenOrientation.Portrait)]
     public class Activity_Bill_Confirm : Activity
     {
-        Button _btnClose, _btnChangeAddress, _btnChangePhone, _btnChangeNote, _btnOrder;
-        TextView _tvAddress, _tvPhone, _tvNote, _tvPrice;
-        RecyclerView _recyclerData;
-        AlertDialog _dialog;
-        Spinner _spinnerDistrict, _spinnerWard;
+        private Button _btnClose, _btnChangeAddress, _btnChangePhone, _btnChangeNote, _btnOrder;
+        private TextView _tvAddress, _tvPhone, _tvNote, _tvPrice;
+        private RecyclerView _recyclerData;
+        private AlertDialog _dialog;
+        private Spinner _spinnerDistrict, _spinnerWard;
         string _tempPhone, _tempAddress, _tempNote;
+        private List<BeanSession> list = new List<BeanSession>();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             getLayout();
+            SetData();
         }
+
+        private void SetData()
+        {
+            list = SQLiteDataHandler.BeanSession_LoadList();
+        }
+
         private void getLayout()
         {
             SetContentView(Resource.Layout.Layout_Bill_Confirm);
@@ -51,6 +62,11 @@ namespace LunchOffice_App.Droid.Code.Activities
             _btnChangePhone.Click += Click_ChangePhone;
 
             _btnChangeNote.Click += Click_ChangeNote;
+
+            if (CmmVar.LIST_SHOPPING_CART.Count >0)
+            {
+                List<BeanShoppingCart> newl = CmmVar.LIST_SHOPPING_CART;
+            }
         }
 
         private void Click_ChangeAddress(object sender, EventArgs e)
@@ -61,6 +77,7 @@ namespace LunchOffice_App.Droid.Code.Activities
             _spinnerWard = root.FindViewById<Spinner>(Resource.Id.BillConfirm_Address_spinnerWard);
             _spinnerDistrict = root.FindViewById<Spinner>(Resource.Id.BillConfirm_Address_spinnerDistrict);
             Button _btnAddresss = root.FindViewById<Button>(Resource.Id.BillConfirm_Note_btnConfirm);
+
 
             //Spinner
             ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_DISTRICT);
@@ -81,9 +98,14 @@ namespace LunchOffice_App.Droid.Code.Activities
                     Toast.MakeText(this, "Thông tin không được rỗng!", ToastLength.Long).Show();
                 }
             };
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager.DefaultDisplay.GetMetrics(displayMetrics);
+            int height = displayMetrics.HeightPixels;
+            int width = displayMetrics.WidthPixels;
 
             builder.SetView(root);
             _dialog = builder.Create();
+            _dialog.Window.SetLayout(LayoutParams.MatchParent, LayoutParams.MatchParent);
             _dialog.Show();
         }
         private void Click_ChangePhone(object sender, EventArgs e)

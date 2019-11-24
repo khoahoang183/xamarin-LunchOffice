@@ -2,7 +2,7 @@ package md5d73420f82b702fa9e76b4181c11cb115;
 
 
 public class Fragment_Home_Banner
-	extends android.app.Fragment
+	extends android.support.v4.app.Fragment
 	implements
 		mono.android.IGCUserPeer
 {
