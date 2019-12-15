@@ -44,13 +44,14 @@
                 android:id="@+id/linearLayout1">
                 <TextView
                     android:text="Dish Name"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#000"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/ItemHomeRecy_tvDishName"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:textStyle="bold|italic" />
+                    android:textStyle="bold" />
                 <TextView
                     android:text="Dish category"
                     android:textAppearance="?android:attr/textAppearanceMedium"

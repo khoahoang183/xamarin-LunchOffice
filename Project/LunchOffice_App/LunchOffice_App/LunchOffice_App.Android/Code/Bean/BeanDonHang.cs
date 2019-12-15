@@ -18,7 +18,7 @@ namespace LunchOffice_App.Droid.Code.Bean
         {
         }
 
-        public BeanDonHang(int maDonHang, string maKH, string diaChi, string soDT, int hinhThuThanhToan, string maGiamGia, float phiVanChuyen, float thanhTien, int trangThai, int created, int createdBy)
+        public BeanDonHang(int maDonHang, string maKH, string diaChi, string soDT, int hinhThuThanhToan, string maGiamGia, float phiVanChuyen, float thanhTien, int trangThai, DateTime? created, string createdBy)
         {
             MaDonHang = maDonHang;
             MaKH = maKH;
@@ -51,8 +51,8 @@ namespace LunchOffice_App.Droid.Code.Bean
 
         public int TrangThai { get; set; }
 
-        public int Created { get; set; }
+        public DateTime? Created { get; set; }
 
-        public int CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

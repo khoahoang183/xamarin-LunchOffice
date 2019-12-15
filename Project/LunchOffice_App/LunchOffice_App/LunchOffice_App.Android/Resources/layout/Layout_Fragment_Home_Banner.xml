@@ -9,6 +9,7 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:id="@+id/FragmentHome_imgBanner"
-        android:scaleType="fitXY"/>
+        android:adjustViewBounds="true"
+        />
 
 </LinearLayout>

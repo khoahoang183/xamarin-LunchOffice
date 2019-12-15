@@ -14,6 +14,7 @@ using Android.Views;
 using Android.Widget;
 using LunchOffice_App.Droid.Code.Bean;
 using LunchOffice_App.Droid.Code.Cmm;
+using LunchOffice_App.Droid.Code.SQLite;
 
 namespace LunchOffice_App.Droid.Code.Activities
 {
@@ -55,13 +56,13 @@ namespace LunchOffice_App.Droid.Code.Activities
             Button _btnAdd_Detail = root.FindViewById<Button>(Resource.Id.AddItem_btnAdd);
 
             _tvFoodName_Detail.Text = _beanMonAn.TenMon.ToString();
-            _tvPrice_Detail.Text = String.Format("{0:#,0}", _beanMonAn.GiaTien).ToString() + "đ";
+            _tvPrice_Detail.Text = String.Format("{0:#,0}", _beanMonAn.GiaTien).ToString() + " VNĐ";
             _btnIncrease_Detail.Click += delegate
             {
                 int _temp = int.Parse(_tvCount_Detail.Text);
                 _temp = _temp + 1;
-                _tvCount_Detail.Text = _temp.ToString();               
-                _tvPrice_Detail.Text = String.Format("{0:#,0}", _beanMonAn.GiaTien * (_temp * 1.0)).ToString() + "đ";
+                _tvCount_Detail.Text = _temp.ToString();
+                _tvPrice_Detail.Text = String.Format("{0:#,0}", _beanMonAn.GiaTien * (_temp * 1.0)).ToString() + " VNĐ";
             };
             _btnDecrease_Detail.Click += delegate
             {
@@ -70,15 +71,32 @@ namespace LunchOffice_App.Droid.Code.Activities
                 {
                     _temp = _temp - 1;
                     _tvCount_Detail.Text = _temp.ToString();
-                    _tvPrice_Detail.Text = String.Format("{0:#,0}", _beanMonAn.GiaTien * (_temp * 1.0)).ToString() + "đ";
+                    _tvPrice_Detail.Text = String.Format("{0:#,0}", _beanMonAn.GiaTien * (_temp * 1.0)).ToString() + " VNĐ";
                 }
             };
             _btnAdd_Detail.Click += delegate
             {
                 _dialog.Dismiss();
-                BeanShoppingCart temp = new BeanShoppingCart(MaMon, int.Parse(_tvCount_Detail.Text));
-                CmmVar.LIST_SHOPPING_CART.Add(temp);
-                Toast.MakeText(this, "Đã thêm vào giỏ hàng", ToastLength.Long).Show();
+                List<BeanShoppingCart> tempCart = SQLiteDataHandler.BeanShoppingCart_LoadList();
+                BeanShoppingCart addItem = new BeanShoppingCart(MaMon, int.Parse(_tvCount_Detail.Text));
+                if (tempCart != null && tempCart.Count > 0)
+                {
+                    if (tempCart.Any(x => x.MaMonAn.Equals(MaMon))) // them so luong
+                    {
+                        SQLiteDataHandler.BeanShoppingCart_UpdateItemCount(addItem);
+                        Toast.MakeText(this, "Đã cập nhật số lượng", ToastLength.Long).Show();
+                    }
+                    else
+                    {
+                        SQLiteDataHandler.BeanShoppingCart_AddItem(addItem);
+                        Toast.MakeText(this, "Đã thêm vào giỏ hàng", ToastLength.Long).Show();
+                    }
+                }
+                else
+                {
+                    SQLiteDataHandler.BeanShoppingCart_AddItem(addItem);
+                    Toast.MakeText(this, "Đã thêm vào giỏ hàng", ToastLength.Long).Show();
+                }
             };
             builder.SetView(root);
             _dialog = builder.Create();
@@ -96,7 +114,7 @@ namespace LunchOffice_App.Droid.Code.Activities
                 {
                     Utilities.Utilities_LoadImage.LoadImageToImageView(_beanMonAn.HinhAnh, _imgPortrait);
                     _tvFoodName.Text = _beanMonAn.TenMon.ToString();
-                    _tvFoodPrice.Text = String.Format("{0:#,0}", _beanMonAn.GiaTien) + "đ";
+                    _tvFoodPrice.Text = String.Format("{0:#,0}", _beanMonAn.GiaTien) + " VNĐ";
                     _tvFoodDescription.Text = _beanMonAn.MieuTa.ToString();
                 }
             }

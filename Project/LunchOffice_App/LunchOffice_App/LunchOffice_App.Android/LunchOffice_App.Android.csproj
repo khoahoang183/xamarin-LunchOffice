@@ -105,9 +105,12 @@
     <Compile Include="Code\Adapter\BillConfirmAddressRecyclerViewAdapter.cs" />
     <Compile Include="Code\Adapter\HomeRecyclerViewAdapter.cs" />
     <Compile Include="Code\Adapter\HomeViewPagerBannerAdapter.cs" />
+    <Compile Include="Code\Adapter\ShoppingCartRecyclerViewAdapter.cs" />
     <Compile Include="Code\Bean\BeanAPI.cs" />
+    <Compile Include="Code\Bean\BeanCTDonHang.cs" />
     <Compile Include="Code\Bean\BeanDiaChi.cs" />
     <Compile Include="Code\Bean\BeanDonHang.cs" />
+    <Compile Include="Code\Bean\BeanItemCart.cs" />
     <Compile Include="Code\Bean\BeanMonAn.cs" />
     <Compile Include="Code\Bean\BeanNguoiDung.cs" />
     <Compile Include="Code\Bean\BeanSession.cs" />
@@ -267,15 +270,6 @@
     <AndroidResource Include="Resources\drawable\ic_menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\img_banner001.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\img_banner002.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\img_banner003.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\Layout_Fragment_Home_Banner.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -355,6 +349,41 @@
     <AndroidResource Include="Resources\layout\Item_Bill_Confirm_Change_Address.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\banner2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\banner3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\banner1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Item_GioHang_RecyclerView.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\layout_home_recyclerview_item_shape_3.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_success_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\banner1_cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\banner2_cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\banner3_cut.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -60,7 +60,6 @@
                     android:gravity="center_horizontal|center_vertical" />
             </LinearLayout>
         </LinearLayout>
-
         <LinearLayout
             android:orientation="horizontal"
             android:minWidth="25px"
@@ -88,17 +87,17 @@
                     android:id="@+id/textView5"
                     android:layout_marginLeft="8dp"/>
                 <TextView
-                    android:text="123 Nguyễn Trãi Phường 1 Quận 1"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Text 123 Nguyễn Trãi Phường 1 Quận 1 Thành phố Hồ Chí Minh"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/BillConfirm_tvAddress"
                     android:textColor="@color/Gray_TextMainColor"
                     android:textStyle="bold"
+                    android:ellipsize="end"
                     android:layout_marginLeft="8dp"
                     android:lines="2"
                     android:maxLines="2"/>
-
             </LinearLayout>
             <LinearLayout
                 android:orientation="vertical"
@@ -119,7 +118,6 @@
                     android:drawableTop="@drawable/ic_edit"/>
             </LinearLayout>
         </LinearLayout>
-
         <LinearLayout
             android:orientation="horizontal"
             android:minWidth="25px"
@@ -131,7 +129,8 @@
             android:background="@color/Gray_BackgroundColor"
             android:layout_marginBottom="4dp"
             android:layout_marginTop="4dp"
-            android:weightSum="10">
+            android:weightSum="10"
+            android:visibility="gone">
             <LinearLayout
                 android:orientation="vertical"
                 android:minWidth="25px"
@@ -176,7 +175,6 @@
 
             </LinearLayout>
         </LinearLayout>
-
         <LinearLayout
             android:orientation="vertical"
             android:minWidth="25px"
@@ -184,7 +182,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:id="@+id/linearLayout4"
-            android:layout_weight="3.75"
+            android:layout_weight="6.75"
             android:background="@color/Gray_BackgroundColor"
             android:layout_marginBottom="4dp"
             android:layout_marginTop="4dp"
@@ -234,7 +232,8 @@
             android:background="@color/Gray_BackgroundColor"
             android:layout_marginBottom="4dp"
             android:layout_marginTop="4dp"
-            android:weightSum="10">
+            android:weightSum="10"
+            android:visibility="gone">
             <LinearLayout
                 android:orientation="vertical"
                 android:minWidth="25px"
@@ -270,124 +269,111 @@
                     android:drawableTop="@drawable/ic_edit"/>
             </LinearLayout>
         </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout8"
-        android:layout_weight="0"
-        android:background="@color/Gray_BackgroundColor"
-        android:weightSum="2"
-        android:layout_alignParentBottom="true">
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayout13"
-            android:layout_weight="0"
-            android:weightSum="2"
-            android:layout_margin="8dp">
-            <LinearLayout
-                android:orientation="vertical"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/linearLayout17"
-                android:layout_weight="1">
-                <Button
-                    android:layout_margin="8dp"
-                    android:text="Tiền mặt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button4"
-                    android:background="@color/Gray_BackgroundColor"
-                    android:textColor="@color/Orange_MainColor"
-                    android:textStyle="bold" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/linearLayout18"
-                android:layout_weight="1">
-                <Button
-                    android:layout_margin="8dp"
-                    android:text="Mã Khuyến Mãi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button3"
-                    android:background="@color/Gray_BackgroundColor"
-                    android:textColor="@color/Orange_MainColor"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayout14"
+            android:layout_height="0dp"
+            android:id="@+id/linearLayout8"
             android:layout_weight="1"
-            android:weightSum="2">
+            android:background="@color/Gray_BackgroundColor"
+            android:weightSum="2"
+            android:layout_alignParentBottom="true">
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:minWidth="25px"
                 android:minHeight="25px"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/linearLayout15"
-                android:layout_weight="1">
-                <TextView
-                    android:text="Tổng tiền:"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView16"
-                    android:layout_marginLeft="8dp"/>
-                <TextView
-                    android:text="45.000d"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/BillConfirm_tvPrice"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="8dp"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout14"
+                android:layout_weight="1.5"
+                android:weightSum="2">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout15"
+                    android:layout_weight="1.25"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearLayout25"
+                        android:layout_weight="1"
+                        android:weightSum="2">
+                        <TextView
+                            android:text="Phí Ship:"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView16"
+                            android:layout_marginLeft="8dp"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:text="9,000,000 VNĐ"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/BillConfirm_tvShip"
+                            android:layout_marginLeft="8dp"
+                            android:textStyle=""
+                            android:textColor="#000"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearLayout25"
+                        android:layout_weight="1"
+                        android:weightSum="2">
+                        <TextView
+                            android:text="Tiền hàng:"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView16"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="8dp"/>
+                        <TextView
+                            android:textColor="#000"
+                            android:text="9,000,000 VNĐ"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/BillConfirm_tvPrice"
+                            android:layout_marginLeft="8dp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout16"
+                    android:layout_weight="0.75">
+                    <Button
+                        android:layout_margin="8dp"
+                        android:text="Đặt Hàng"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/BillConfirm_btnConfirm"
+                        android:background="@drawable/layout_login_2_button_login"
+                        android:textColor="@android:color/background_light"
+                        android:textStyle="bold" />
+                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/linearLayout16"
-                android:layout_weight="1">
-                <Button
-                    android:layout_margin="8dp"
-                    android:text="Đặt Hàng"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/BillConfirm_btnConfirm"
-                    android:background="@drawable/layout_login_2_button_login"
-                    android:textColor="@android:color/background_light"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
         </LinearLayout>
-
-
     </LinearLayout>
 
 

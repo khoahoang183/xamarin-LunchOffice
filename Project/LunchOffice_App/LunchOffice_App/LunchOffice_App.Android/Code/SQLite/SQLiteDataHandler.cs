@@ -17,7 +17,7 @@ namespace LunchOffice_App.Droid.Code.SQLite
 {
     class SQLiteDataHandler
     {
-        public static string DbFilePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "mydb.db");
+        public static string DbFilePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "lunchoffice.db");
         private static SQLiteConnection db = null;
         public static void CreateDBSQLite()
         {
@@ -33,6 +33,7 @@ namespace LunchOffice_App.Droid.Code.SQLite
                     db.CreateTable<BeanMonAn>();
                     db.CreateTable<BeanNguoiDung>();
                     db.CreateTable<BeanSession>();
+                    db.CreateTable<BeanShoppingCart>();
                 }
             }
             catch (Exception e)
@@ -40,7 +41,6 @@ namespace LunchOffice_App.Droid.Code.SQLite
                 throw;
             }
         }
-
 
         #region BeanMonAn
         public static List<BeanMonAn> BeanMonAn_LoadList()
@@ -192,5 +192,132 @@ namespace LunchOffice_App.Droid.Code.SQLite
         }
         #endregion
 
+        #region BeanCart
+        public static List<BeanShoppingCart> BeanShoppingCart_LoadList()
+        {
+            List<BeanShoppingCart> data = new List<BeanShoppingCart>();
+            try
+            {
+                if (File.Exists(DbFilePath))
+                {
+                    db = new SQLiteConnection(DbFilePath);
+                    data = db.Table<BeanShoppingCart>().ToList();
+                }
+                return data;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        public static bool BeanShoppingCart_AddItem(BeanShoppingCart item)
+        {
+            try
+            {
+                if (File.Exists(DbFilePath))
+                {
+                    db = new SQLiteConnection(DbFilePath);
+                    db.Insert(item);
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        /// <summary>
+        /// item 1 count = 4, goi ham nay voi item 1 count = 2 -> item 1 count =6
+        /// </summary>
+        public static bool BeanShoppingCart_UpdateItemCount(BeanShoppingCart item)
+        {
+            try
+            {
+                if (File.Exists(DbFilePath))
+                {
+                    db = new SQLiteConnection(DbFilePath);
+                    List<BeanShoppingCart> data = BeanShoppingCart_LoadList();
+                    foreach (BeanShoppingCart temp in data)
+                    {
+                        if (temp.MaMonAn == item.MaMonAn)
+                        {
+                            temp.SoLuong = temp.SoLuong + item.SoLuong;
+                        }
+                    }
+                    db.DeleteAll<BeanShoppingCart>();
+                    foreach (BeanShoppingCart temp in data)
+                    {
+                        db.Insert(temp);
+                    }
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        public static bool BeanShoppingCart_UpdateItem(BeanShoppingCart item)
+        {
+            try
+            {
+                if (File.Exists(DbFilePath))
+                {
+                    List<BeanMonAn> data = BeanMonAn_LoadList();
+                    db = new SQLiteConnection(DbFilePath);
+                    db.Update(item);
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        public static bool BeanShoppingCart_DeleteItem(BeanShoppingCart item)
+        {
+            try
+            {
+                if (File.Exists(DbFilePath))
+                {
+                    List<BeanShoppingCart> data = BeanShoppingCart_LoadList();
+                    data.RemoveAll(x => x.MaMonAn == item.MaMonAn);
+                    db = new SQLiteConnection(DbFilePath);
+                    db.DeleteAll<BeanShoppingCart>();
+                    foreach (BeanShoppingCart temp in data)
+                    {
+                        db.Insert(temp);
+                    }
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        public static bool BeanShoppingCart_ClearAll()
+        {
+            List<BeanShoppingCart> data = new List<BeanShoppingCart>();
+            try
+            {
+                if (File.Exists(DbFilePath))
+                {
+                    db = new SQLiteConnection(DbFilePath);
+                    db.DeleteAll<BeanShoppingCart>();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 }

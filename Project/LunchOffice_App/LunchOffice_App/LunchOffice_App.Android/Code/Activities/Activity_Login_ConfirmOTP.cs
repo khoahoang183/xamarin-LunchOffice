@@ -21,7 +21,8 @@ namespace LunchOffice_App.Droid.Code.Activities
     {
         EditText _edtOTP;
         Button _btn0, _btn1, _btn2, _btn3, _btn4, _btn5, _btn6, _btn7, _btn8, _btn9, _btnSend, _btnDel;
-        private string _MaNguoiDung, _TaiKhoan, _MatKhau;
+        private TextView _tvEmail;
+        private string _MaNguoiDung, _TaiKhoan, _MatKhau, _Email;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -30,6 +31,7 @@ namespace LunchOffice_App.Droid.Code.Activities
                 _MaNguoiDung = Intent.GetStringExtra("MaNguoiDung");
                 _TaiKhoan = Intent.GetStringExtra("TaiKhoan");
                 _MatKhau = Intent.GetStringExtra("MatKhau");
+                _Email = Intent.GetStringExtra("Email");
             }
             getLayout();
         }
@@ -47,8 +49,20 @@ namespace LunchOffice_App.Droid.Code.Activities
             _btn8 = FindViewById<Button>(Resource.Id.ConfirmOTP_btn8);
             _btn9 = FindViewById<Button>(Resource.Id.ConfirmOTP_btn9);
             _btn0 = FindViewById<Button>(Resource.Id.ConfirmOTP_btn0);
+            _tvEmail = FindViewById<TextView>(Resource.Id.ConfirmOTP_tvEmail);            
             _btnSend = FindViewById<Button>(Resource.Id.ConfirmOTP_btnSend);
             _btnDel = FindViewById<Button>(Resource.Id.ConfirmOTP_btnDelete);
+
+
+            if (!string.IsNullOrEmpty(_Email) )
+            {
+                _tvEmail.Text = _Email;
+            }
+            else
+            {
+                _tvEmail.Text = "abc@gmail.com";
+            }
+
 
             _edtOTP.Enabled = false;
             _btn0.Click += delegate

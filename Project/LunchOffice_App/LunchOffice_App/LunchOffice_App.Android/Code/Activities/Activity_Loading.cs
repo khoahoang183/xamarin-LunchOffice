@@ -19,6 +19,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using LunchOffice_App.Droid.Code.SQLite;
 using LunchOffice_App.Droid.Code.Cmm;
+using Android.Graphics.Drawables;
+using Android.Graphics;
 
 namespace LunchOffice_App.Droid.Code.Activities
 {
@@ -30,7 +32,7 @@ namespace LunchOffice_App.Droid.Code.Activities
         string[] _permissionList = new string[] { Manifest.Permission.WriteExternalStorage, Manifest.Permission.ReadExternalStorage };
         int REQUEST_PERMISSION_CODE = 1;
         #endregion
-        private ProgressBar ProgressBar;
+        private ProgressBar _pro;
         #region Result From API
         public static List<BeanMonAn> API_RESULT_LISTMONAN = new List<BeanMonAn>();
         #endregion
@@ -39,13 +41,9 @@ namespace LunchOffice_App.Droid.Code.Activities
             base.OnCreate(savedInstanceState);
             requestPermission();
             getLayout();
-            ProgressBar.Visibility = ViewStates.Visible;
             // get List Mon An
             await Utilities_API.API_GetListMonAn();
             API_RESULT_LISTMONAN = Utilities_API._lstMonAn;
-
-            //BeanNguoiDung test = JsonConvert.DeserializeObject<BeanNguoiDung>(json);
-
 
             setupSQLite();
             Finish();
@@ -55,7 +53,9 @@ namespace LunchOffice_App.Droid.Code.Activities
         private void getLayout()
         {
             SetContentView(Resource.Layout.Layout_Loading);
-            ProgressBar = FindViewById<ProgressBar>(Resource.Id.progressDownload);
+            _pro = FindViewById<ProgressBar>(Resource.Id.progressDownload);
+            _pro.Visibility = ViewStates.Visible;
+            _pro.ProgressTintList = Android.Content.Res.ColorStateList.ValueOf(Color.Red);
         }
         private void setupSQLite()
         {

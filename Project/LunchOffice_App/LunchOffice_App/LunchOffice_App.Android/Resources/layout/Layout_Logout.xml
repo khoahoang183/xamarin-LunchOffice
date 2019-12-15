@@ -1,19 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="10">
-
-             <Button
-                android:textColor="#fff"
-                android:layout_margin="8dp"
-                android:text="Đăng xuất"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:id="@+id/Logout_btnLogout"
-                android:background="@drawable/layout_login_2_button_login"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/linearLayout1"
+        android:layout_weight="1"
+        android:weightSum="10"
+        android:background="@color/Gray_BackgroundColor">
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout6"
+            android:layout_weight="0">
+            <Button
+                android:text="x"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:id="@+id/img_Logout_Close"
+                android:background="#FAFAFA"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout6"
+            android:layout_weight="0">
+            <TextView
+                android:text="Thông tin tài khoản"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/textView1"
                 android:textStyle="bold"
-                android:textSize="16sp" />
+                android:textColor="@color/Gray_TextMainColor"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal|center_vertical" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/linearLayout1"
+        android:layout_weight="1"
+        android:weightSum="4">
+        <TextView
+            android:id="@+id/textView1"
+            android:text="Tài khoản:"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_Logout_TenTaiKhoan"
+            android:hint="Tên tài khoản"
+            android:layout_weight="3"
+            android:textSize="20sp"
+            android:backgroundTint="#cccccc"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/linearLayout1"
+        android:layout_weight="1"
+        android:weightSum="4">
+        <TextView
+            android:id="@+id/textView1"
+            android:text="Mật khẩu:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_Logout_Password"
+            android:hint="Mật khẩu"
+            android:layout_weight="2.5"
+            android:textSize="20sp"
+            android:backgroundTint="#cccccc"/>
+        <ImageView
+            android:src="@drawable/ic_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:id="@+id/img_Logout_ShowPassword"
+            android:layout_weight="0.5"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/linearLayout1"
+        android:layout_weight="1"
+        android:weightSum="4">
+        <TextView
+            android:id="@+id/textView1"
+            android:text="Email:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_Logout_Email"
+            android:hint="Email"
+            android:layout_weight="3"
+            android:textSize="20sp"
+            android:backgroundTint="#cccccc"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/linearLayout1"
+        android:layout_weight="1"
+        android:weightSum="4">
+        <TextView
+            android:id="@+id/textView1"
+            android:text="Ngày Sinh:"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_Logout_NgaySinh"
+            android:hint="Ngày Sinh"
+            android:layout_weight="3"
+            android:textSize="20sp"
+            android:backgroundTint="#cccccc"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/linearLayout1"
+        android:layout_weight="1"
+        android:weightSum="4">
+        <TextView
+            android:id="@+id/textView1"
+            android:text="Giới tính:"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edt_Logout_GioiTinh"
+            android:hint="Giới tính"
+            android:layout_weight="3"
+            android:textSize="20sp"
+            android:backgroundTint="#cccccc"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/linearLayout2"
+        android:layout_weight="2">
+    </LinearLayout>
+    <Button
+        android:textColor="#fff"
+        android:layout_margin="8dp"
+        android:text="Xem lịch sử đơn hàng"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/Logout_btnHistory"
+        android:background="@drawable/layout_login_2_button_login"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+    <Button
+        android:textColor="#fff"
+        android:layout_margin="8dp"
+        android:text="Đăng xuất"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/Logout_btnLogout"
+        android:background="@drawable/layout_login_2_button_login"
+        android:textStyle="bold"
+        android:textSize="16sp" />
 </LinearLayout>

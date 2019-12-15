@@ -29,6 +29,8 @@ android.support.v7.widget.Toolbar;obj\Debug\90\res\layout\toolbar.xml
 attr;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\0\jl\res\values\values.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\icon.xml
 background;obj\Debug\90\res\mipmap-anydpi-v26\icon_round.xml
+Button;obj\Debug\90\res\layout\item_bill_confirm_change_address.xml
+Button;obj\Debug\90\res\layout\item_giohang_recyclerview.xml
 Button;obj\Debug\90\res\layout\layout_bill_confirm.xml
 Button;obj\Debug\90\res\layout\layout_bill_confirm_change_address.xml
 Button;obj\Debug\90\res\layout\layout_bill_confirm_change_note.xml
@@ -52,6 +54,7 @@ corners;obj\Debug\90\res\drawable\layout_food_detail_additem_btnupdown.xml
 corners;obj\Debug\90\res\drawable\layout_home_button_shape.xml
 corners;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape.xml
 corners;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape_2.xml
+corners;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape_3.xml
 corners;obj\Debug\90\res\drawable\layout_login_2_button_facebook.xml
 corners;obj\Debug\90\res\drawable\layout_login_2_button_google.xml
 corners;obj\Debug\90\res\drawable\layout_login_2_button_login.xml
@@ -64,6 +67,7 @@ EditText;obj\Debug\90\res\layout\layout_food_category.xml
 EditText;obj\Debug\90\res\layout\layout_login_2.xml
 EditText;obj\Debug\90\res\layout\layout_login_register.xml
 EditText;obj\Debug\90\res\layout\layout_login_register_confirmotp.xml
+EditText;obj\Debug\90\res\layout\layout_logout.xml
 enum;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\0\jl\res\values\values.xml
 external-cache-path;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\50\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 external-path;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\50\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
@@ -73,6 +77,7 @@ FrameLayout;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\Lu
 FrameLayout;obj\Debug\90\res\layout\layout_loading.xml
 FrameLayout;obj\Debug\90\res\layout\layout_login.xml
 FrameLayout;obj\Debug\90\res\layout\layout_login_2.xml
+ImageView;obj\Debug\90\res\layout\item_giohang_recyclerview.xml
 ImageView;obj\Debug\90\res\layout\item_home_recyclerview.xml
 ImageView;obj\Debug\90\res\layout\layout_food_category.xml
 ImageView;obj\Debug\90\res\layout\layout_food_detail.xml
@@ -81,10 +86,13 @@ ImageView;obj\Debug\90\res\layout\layout_home.xml
 ImageView;obj\Debug\90\res\layout\layout_loading.xml
 ImageView;obj\Debug\90\res\layout\layout_login.xml
 ImageView;obj\Debug\90\res\layout\layout_login_2.xml
+ImageView;obj\Debug\90\res\layout\layout_login_register_confirmotp.xml
+ImageView;obj\Debug\90\res\layout\layout_logout.xml
 ImageView;obj\Debug\90\res\layout\layouttest.xml
 item;obj\Debug\90\res\values\styles.xml
 LinearLayout;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\51\jl\res\layout\bottomtablayout.xml
 LinearLayout;obj\Debug\90\res\layout\item_bill_confirm_change_address.xml
+LinearLayout;obj\Debug\90\res\layout\item_giohang_recyclerview.xml
 LinearLayout;obj\Debug\90\res\layout\item_home_recyclerview.xml
 LinearLayout;obj\Debug\90\res\layout\layout_bill_confirm.xml
 LinearLayout;obj\Debug\90\res\layout\layout_bill_confirm_change_address.xml
@@ -126,6 +134,7 @@ shape;obj\Debug\90\res\drawable\layout_food_detail_additem_btnupdown.xml
 shape;obj\Debug\90\res\drawable\layout_home_button_shape.xml
 shape;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape.xml
 shape;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape_2.xml
+shape;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape_3.xml
 shape;obj\Debug\90\res\drawable\layout_login_2_button_facebook.xml
 shape;obj\Debug\90\res\drawable\layout_login_2_button_google.xml
 shape;obj\Debug\90\res\drawable\layout_login_2_button_login.xml
@@ -137,6 +146,7 @@ solid;obj\Debug\90\res\drawable\layout_food_detail_additem_btnupdown.xml
 solid;obj\Debug\90\res\drawable\layout_home_button_shape.xml
 solid;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape.xml
 solid;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape_2.xml
+solid;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape_3.xml
 solid;obj\Debug\90\res\drawable\layout_login_2_button_facebook.xml
 solid;obj\Debug\90\res\drawable\layout_login_2_button_google.xml
 solid;obj\Debug\90\res\drawable\layout_login_2_button_login.xml
@@ -149,11 +159,14 @@ stroke;obj\Debug\90\res\drawable\layout_food_category_searchbar_background.xml
 stroke;obj\Debug\90\res\drawable\layout_food_detail_additem_btnupdown.xml
 stroke;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape.xml
 stroke;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape_2.xml
+stroke;obj\Debug\90\res\drawable\layout_home_recyclerview_item_shape_3.xml
 stroke;obj\Debug\90\res\drawable\layout_login_2_button_facebook.xml
 stroke;obj\Debug\90\res\drawable\layout_login_2_button_google.xml
 stroke;obj\Debug\90\res\drawable\layout_login_2_button_login.xml
 stroke;obj\Debug\90\res\drawable\layout_login_button_shape.xml
 style;obj\Debug\90\res\values\styles.xml
+TextView;obj\Debug\90\res\layout\item_bill_confirm_change_address.xml
+TextView;obj\Debug\90\res\layout\item_giohang_recyclerview.xml
 TextView;obj\Debug\90\res\layout\item_home_recyclerview.xml
 TextView;obj\Debug\90\res\layout\layout_bill_confirm.xml
 TextView;obj\Debug\90\res\layout\layout_bill_confirm_change_address.xml
@@ -164,6 +177,8 @@ TextView;obj\Debug\90\res\layout\layout_food_detail_additem.xml
 TextView;obj\Debug\90\res\layout\layout_home.xml
 TextView;obj\Debug\90\res\layout\layout_login_2.xml
 TextView;obj\Debug\90\res\layout\layout_login_register.xml
+TextView;obj\Debug\90\res\layout\layout_login_register_confirmotp.xml
+TextView;obj\Debug\90\res\layout\layout_logout.xml
 translate;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\51\jl\res\anim\enterfromleft.xml
 translate;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\51\jl\res\anim\enterfromright.xml
 translate;F:\GitHub\LunchOffice_App\Project\LunchOffice_App\LunchOffice_App\LunchOffice_App.Android\obj\Debug\90\lp\51\jl\res\anim\exittoleft.xml

@@ -9,13 +9,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite;
 
 namespace LunchOffice_App.Droid.Code.Bean
 {
     public class BeanShoppingCart
     {
-        public int MaMonAn;
-        public int SoLuong;
+        [PrimaryKey]
+        public int MaMonAn { get; set; }
+        public int SoLuong { get; set; }
 
         public BeanShoppingCart()
         {

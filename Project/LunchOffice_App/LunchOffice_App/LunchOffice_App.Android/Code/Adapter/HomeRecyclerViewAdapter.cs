@@ -42,7 +42,7 @@ namespace LunchOffice_App.Droid.Code.Adapter
         {
             MyViewHolder recyclerViewHolder = holder as MyViewHolder;
             recyclerViewHolder._tvDishName.Text = _listMonAn[position].TenMon;
-            recyclerViewHolder._tvDishPrice.Text = String.Format("{0:#,0}", _listMonAn[position].GiaTien) + "đ";
+            recyclerViewHolder._tvDishPrice.Text = String.Format("{0:#,0}", _listMonAn[position].GiaTien) + " VNĐ";
             switch (_listMonAn[position].MaLoai)
             {
                 case 1:
@@ -64,10 +64,6 @@ namespace LunchOffice_App.Droid.Code.Adapter
             // load image
             Utilities.Utilities_LoadImage.LoadImageToImageView(_listMonAn[position].HinhAnh, recyclerViewHolder._imgDish);
             //recyclerViewHolder._lnContent.Click += OnClick;
-        }
-        private void Item_Click(object sender, EventArgs e)
-        {
-
         }
         private void OnClick(int obj)
         {

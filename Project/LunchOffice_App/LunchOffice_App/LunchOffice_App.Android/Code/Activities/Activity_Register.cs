@@ -38,15 +38,15 @@ namespace LunchOffice_App.Droid.Code.Activities
             _edtEmail = FindViewById<EditText>(Resource.Id.Register_edtEmail);
             btnRegister = FindViewById<Button>(Resource.Id.Register_btnRegister);
 
-            _spinnerDistrict = FindViewById<Spinner>(Resource.Id.spinnerQuan);
-            _spinnerWard = FindViewById<Spinner>(Resource.Id.spinnerPhuong);
+            _spinnerDistrict = FindViewById<Spinner>(Resource.Id.BillConfirm_Address_spinnerDistrict);
+            //_spinnerWard = FindViewById<Spinner>(Resource.Id.BillConfirm_Address_spinnerWard);
 
             btnRegister.Click += btnRegisterClick;
             //setup data
-            ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_DISTRICT);
-            adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
-            _spinnerDistrict.Adapter = adapter;
-            _spinnerDistrict.ItemSelected += spinnerDistrictItemSelected;
+            //ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Resource.Layout.support_simple_spinner_dropdown_item, DataWardDistrict.LIST_DISTRICT);
+            //adapter.SetDropDownViewResource(Resource.Layout.support_simple_spinner_dropdown_item);
+            //_spinnerDistrict.Adapter = adapter;
+            //_spinnerDistrict.ItemSelected += spinnerDistrictItemSelected;
         }
         #region View Event
         private void spinnerDistrictItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -140,6 +140,7 @@ namespace LunchOffice_App.Droid.Code.Activities
                         Toast.MakeText(this, "Đăng ký thành công!", ToastLength.Long).Show();
                         Finish();
                         Intent intent = new Intent(this, typeof(Activity_Login_ConfirmOTP));
+                        intent.PutExtra("Email", result.Email);
                         intent.PutExtra("MaNguoiDung", result.MaNguoiDung);
                         intent.PutExtra("TaiKhoan", result.TaiKhoan);
                         intent.PutExtra("MatKhau", result.MatKhau);
@@ -187,9 +188,9 @@ namespace LunchOffice_App.Droid.Code.Activities
         }
         private void loadTestData()
         {
-            _edtID.Text = "khoauser";
-            _edtPassword.Text = "Aa123456";
-            _edtConfirmPassword.Text = "Aa123456";
+            //_edtID.Text = "khoauser";
+            //_edtPassword.Text = "Aa123456";
+            //_edtConfirmPassword.Text = "Aa123456";
             _edtAddress.Text = "123 Nguyễn Trãi";
             _edtPhone.Text = "0834673896";
             _edtEmail.Text = "hoangdangkhoa.m9@gmail.com";

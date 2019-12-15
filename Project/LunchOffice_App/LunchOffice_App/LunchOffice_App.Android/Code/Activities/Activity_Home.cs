@@ -37,6 +37,7 @@ namespace LunchOffice_App.Droid.Code.Activities
         private Android.Support.V4.Widget.DrawerLayout _drawerLayout;
         private PagerAdapter _viewPagerBannerAdapter;
         private List<BeanMonAn> _listMonAn = new List<BeanMonAn>();
+        private HomeViewPagerBannerAdapter ViewPageradapter;
         private string _JsonResult_ListMonAn = "";
         private int _countPager = 0;
         private System.Timers.Timer Timer1 = new System.Timers.Timer();
@@ -60,8 +61,9 @@ namespace LunchOffice_App.Droid.Code.Activities
             _tvName = FindViewById<TextView>(Resource.Id.Home_tvName);
             _recyclerData = FindViewById<RecyclerView>(Resource.Id.Home_RecyclerView_Data);
             _viewPagerBanner = FindViewById<ViewPager>(Resource.Id.Home_ViewPagerBanner);
-            HomeViewPagerBannerAdapter adapter = new HomeViewPagerBannerAdapter(SupportFragmentManager);
-            _viewPagerBanner.Adapter = adapter;
+            ViewPageradapter = new HomeViewPagerBannerAdapter(SupportFragmentManager);
+            _viewPagerBanner.Adapter = ViewPageradapter;
+            _viewPagerBanner.OffscreenPageLimit = 3;
             SetupTimerViewPager();
             _btnCategory1.Click += delegate
             {
@@ -133,6 +135,11 @@ namespace LunchOffice_App.Droid.Code.Activities
             intent.PutExtra("Detail_MaMon", _listMonAn[e].MaMon.ToString());
             StartActivity(intent);
         }
+
+        private void Click_ViewPager(object sender, EventArgs e)
+        {
+            _viewPagerBanner.SetCurrentItem(_countPager, true);
+        }
         private void SetData()
         {
             try
@@ -165,28 +172,28 @@ namespace LunchOffice_App.Droid.Code.Activities
         }
         private void SetupTimerViewPager()
         {
-            //Timer1.Interval = 10000;
-            //Timer1.Enabled = true;
-            //Timer1.Elapsed += (object sender, System.Timers.ElapsedEventArgs e) =>
-            //{
-            //    if (_countPager == 0)
-            //    {
-            //        _countPager++;
-            //        _viewPagerBanner.SetCurrentItem(_countPager, true);
-            //    }
-            //    else if (_countPager == 1)
-            //    {
-            //        _countPager++;
-            //        _viewPagerBanner.SetCurrentItem(_countPager, true);
-            //    }
-            //    else if (_countPager == 2)
-            //    {
-            //        _countPager = 0;
-            //        _viewPagerBanner.SetCurrentItem(_countPager, true);
-            //    }
+            Timer1.Interval = 5000;
+            Timer1.Enabled = true;
+            Timer1.Elapsed += (object sender, System.Timers.ElapsedEventArgs e) =>
+            {
+                if (_countPager == 0)
+                {
+                    _countPager++;
+                    Click_ViewPager(null, null);
+                }
+                else if (_countPager == 1)
+                {
+                    _countPager++;
+                    Click_ViewPager(null, null);
+                }
+                else if (_countPager == 2)
+                {
+                    _countPager = 0;
+                    Click_ViewPager(null, null);
+                }
 
-            //};
-            //Timer1.Start();
+            };
+            Timer1.Start();
         }
 
     }

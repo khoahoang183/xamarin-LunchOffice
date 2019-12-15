@@ -34,15 +34,15 @@ namespace LunchOffice_App.Droid.Code.Fragments
             _imgBanner = root.FindViewById<ImageView>(Resource.Id.FragmentHome_imgBanner);
             if (_img == 1)
             {
-                _imgBanner.SetBackgroundResource(Resource.Drawable.img_banner001);
+                _imgBanner.SetBackgroundResource(Resource.Drawable.banner1);
             }
             else if (_img == 2)
             {
-                _imgBanner.SetBackgroundResource(Resource.Drawable.img_banner002);
+                _imgBanner.SetBackgroundResource(Resource.Drawable.banner2);
             }
             else if (_img == 3)
             {
-                _imgBanner.SetBackgroundResource(Resource.Drawable.img_banner003);
+                _imgBanner.SetBackgroundResource(Resource.Drawable.banner3);
             }
             return root;
         }
